@@ -1,18 +1,18 @@
 import { Link } from 'react-router-dom';
-import { useState } from '@apollo/client';
+import { useState } from 'react';
 
-var animals = require()
+var animalData = require()
 
 const Home = () => {
 
-  const [animal, setAnimal] = useState(animals);
+  const [animal, setAnimal] = useState(animalData);
 
   return (
     <div className="card bg-white card-rounded w-50">
       <div className='image-container'>
-        <img src={`${process.env.PUBLIC_URL}/assets/images/ZooMap.jpg`} ></img>
+        <img src={`${process.env.PUBLIC_URL}/assets/images/ZooMap.jpg`} alt="Map of the Zoo"></img>
       </div>
-      <div className='Animal List'>
+      <div className='animal_list'>
       
       </div>
     </div>
