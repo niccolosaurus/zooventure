@@ -1,7 +1,7 @@
 const db = require('../config/connection');
 const { Animal } = require('../models');
 
-const animalData = require('./animals.json');
+const animalData = require('./animalCoord.json');
 
 db.once('open', async () => {
   await Animal.deleteMany({});
