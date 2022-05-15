@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState } from '@apollo/client';
+import { useState } from 'react';
 
 var animalData = require()
 
