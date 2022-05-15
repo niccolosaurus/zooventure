@@ -1,55 +1,42 @@
 import React, { useEffect } from 'react';
-import { useLazyQuery } from '@apollo/client';
-import { QUERY_CHECKOUT } from '../../utils/queries';
+
 import { idbPromise } from '../../utils/helpers';
-import CartItem from '../CartItem';
-import Auth from '../../utils/auth';
+
 import { useStoreContext } from '../../utils/GlobalState';
-import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
+import { ADD_ANIMAL} from '../../utils/actions';
+import ''
+import 'bootstrap/dist/css/bootstrap.min.css'
+import {Card} from 'react-bootstrap'
+import AnimalItem from './AnimalItem';
 
 
 
 const AnimalList = () => {
   const [state, dispatch] = useStoreContext();
-  const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
-
 
   useEffect(() => {
-    async function getCart() {
+    async function getList() {
       const animal = await idbPromise('aniamls', 'get');
-      dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...animal] });
+      dispatch({ type: ADD_ANIMAL, products: [...animal] });
     }
 
-    if (!animal.cart.length) {
-      getCart();
+    if (!state.animal.length) {
+      getList();
     }
   }, [state.animal.length, dispatch]);
 
   
-
-  if (!state.list) {
-    return (
-      <div className="cart-closed" >
-        <span role="img" aria-label="trash">
-          🛒
-        </span>
-      </div>
-    );
-  }
-
   return (
-    <div className="cart">
-      <div className="close" onClick={toggleCart}>
-        [close]
-      </div>
-      <h2>Shopping Cart</h2>
+    <div className="animalList">
+      
+      <h2>My animals</h2>
       {state.animals.length ? (
         <div>
-          {state.animals.map((item) => (
-            <CartItem key={item._id} item={item} />
+           
+          {state.animals.map((animal) => (
+            <AnimalItem key={animal._id} animal={animal} />
           ))}
 
-        
         </div>
       ) : (
         <h3>
