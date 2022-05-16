@@ -2,6 +2,7 @@ const { AuthenticationError } = require('apollo-server-express');
 const { User, Animal, Plan } = require('../models')
 const { signToken } = require('../utils/auth')
 
+
 const resolvers = {
     Query: {
         animals: async () => {
