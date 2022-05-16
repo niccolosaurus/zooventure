@@ -6,6 +6,8 @@ import AnimalWindow from "./AnimalWindow";
 
 console.log(AnimalCoord);
 
+require("dotenv").config();
+
 const containerStyle = {
   width: "90%",
   height: "100vh",
@@ -23,7 +25,7 @@ const center = {
 function ZooMap() {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyApqZRVmuHP-PgyWy54eLsb6lOxuxlm0lQ",
+    googleMapsApiKey: process.env.API_KEY,
   });
 
   const [map, setMap] = React.useState(null);
