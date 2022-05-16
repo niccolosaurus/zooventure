@@ -4,9 +4,7 @@ import { idbPromise } from '../../utils/helpers';
 
 import { useStoreContext } from '../../utils/GlobalState';
 import { ADD_ANIMAL} from '../../utils/actions';
-import ''
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {Card} from 'react-bootstrap'
 import AnimalItem from './AnimalItem';
 
 
@@ -16,7 +14,7 @@ const AnimalList = () => {
 
   useEffect(() => {
     async function getList() {
-      const animal = await idbPromise('aniamls', 'get');
+      const animal = await idbPromise('animals', 'get');
       dispatch({ type: ADD_ANIMAL, products: [...animal] });
     }
 
