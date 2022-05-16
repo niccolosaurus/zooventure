@@ -4,6 +4,12 @@ const typeDefs = gql`
     type Animal {
         _id: ID
         name: String
+        coord: Float
+        Lat: Float
+        Lon: Float
+        description: String
+        img: String
+        funFact: String
     }
 
     type User {
@@ -12,6 +18,11 @@ const typeDefs = gql`
         firstName: String
         lastName: String
         email: String
+        plan: Plan
+    }
+
+    type Plan {
+        _id: ID
         animals: [Animal]
     }
 
@@ -23,11 +34,12 @@ const typeDefs = gql`
     type Query {
         animals: [Animal]
         user: User
-        animals(username: String )
+        plan(_id: ID): Plan
     }
 
     type Mutation {
         addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+        addPlan(animals: [ID]): Plan
         updateUser(firstName: String, lastName: String, email: String, password: String): User
         login(email: String!, password: String!): Auth
     }
