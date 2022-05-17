@@ -14,7 +14,7 @@ export const QUERY_USER = gql`
     user {
       firstName
       lastName
-      plan {
+      plans {
         _id
         animals {
           _id
