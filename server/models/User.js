@@ -1,5 +1,9 @@
+const mongoose = require('mongoose');
+
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
+const Plan = require('./Plan')
+
 const userSchema = new Schema({
     username: {
         type: String,
@@ -18,11 +22,11 @@ const userSchema = new Schema({
         required: true,
         minlength: 5,
       },
-      animals: [
-          {
-              type: Schema.Types.ObjectId,
-              ref: 'Animal',
-          }
+      plans: [Plan.schema
+          // {
+          //     type: Schema.Types.ObjectId,
+          //     ref: 'Animal',
+          // }
       ]
 });
 
@@ -38,6 +42,6 @@ userSchema.pre('save', async function (next) {
   userSchema.methods.isCorrectPassword = async function (password) {
     return bcrypt.compare(password, this.password);
   };
-const User = model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 
-model.exports = User;
+module.exports = User;

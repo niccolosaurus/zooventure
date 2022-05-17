@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const { Schema, model } = require('mongoose');
 
 const animalSchema = new Schema({
@@ -8,17 +9,16 @@ const animalSchema = new Schema({
         trim: true,
     },
     coord: {
-        type: Number,
+        type: String,
         required: false,
         trim: true,
     },
     Lat: {
-        type: Number,
+        type: [Number],
         required: true,
-        trim: true
     },
     Lon: {
-        type: Number,
+        type: [Number],
         required: true
     },
     description: {
@@ -37,6 +37,6 @@ const animalSchema = new Schema({
 
 });
 
-const Animal = model('Animal', animalSchema);
+const Animal = mongoose.model('Animal', animalSchema);
 
-model.exports = Animal;
+module.exports = Animal;
