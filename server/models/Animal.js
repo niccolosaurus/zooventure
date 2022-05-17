@@ -14,11 +14,11 @@ const animalSchema = new Schema({
         trim: true,
     },
     Lat: {
-        type: [Number],
+        type: Number,
         required: true,
     },
     Lon: {
-        type: [Number],
+        type: Number,
         required: true
     },
     description: {
