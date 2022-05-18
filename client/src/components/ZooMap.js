@@ -90,7 +90,7 @@ function ZooMap() {
 
   const onLoad = React.useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
+    // map.fitBounds(bounds);
     setMap(map);
   }, []);
 
@@ -108,10 +108,10 @@ function ZooMap() {
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
-      zoom={18}
       onLoad={onLoad}
       onUnmount={onUnmount}
       options= {{styles: mapStyles}}
+      zoom={17}
     >
       {/* Child components, such as markers, info windows, etc. */}
       <>
