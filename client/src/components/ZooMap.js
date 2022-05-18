@@ -71,7 +71,7 @@ function ZooMap() {
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
-      zoom={5}
+      zoom={18}
       onLoad={onLoad}
       onUnmount={onUnmount}
     >
@@ -88,7 +88,7 @@ function ZooMap() {
               key={animal._id}
               position={position}
               onClick={() => getAnimalData(animal)}
-              icon={process.env.PUBLIC_URL + '/assets/images/Gren_paw_print.png'}
+              icon={process.env.PUBLIC_URL + '/assets/images/green_paw_print.png'}
             />
           );
         })}
