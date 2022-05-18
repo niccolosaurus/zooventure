@@ -39,7 +39,6 @@ const Home = () => {
 
   return (
     <div className="card bg-white card-rounded w-50">
-        <Header />
       <div className="image-container">
         {/* <img src={`${process.env.PUBLIC_URL}/assets/images/ZooMap.jpg`} alt="Map of the Zoo"></img> */}
         <ZooMap />
