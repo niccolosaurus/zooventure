@@ -9,11 +9,11 @@ export const QUERY_ANIMALS = gql`
   }
 `;
 
-export const QUERY_USER = gql`
-  {
-    user {
-      firstName
-      lastName
+export const QUERY_USERS = gql`
+  query getUsers {
+    users {
+      username
+      email
       plans {
         _id
         animals {
@@ -25,21 +25,21 @@ export const QUERY_USER = gql`
   }
 `;
 
-// export const QUERY_USER = gql`
-//   query user($username: String) {
-//     user(username: $username) {
-//       _id
-//       username
-//       firstName
-//       lastName
-//       email
-//       animals {
-//         _id
-//         name
-//       }
-//     }
-//   }
-// `;
+export const QUERY_USER = gql`
+  query user($username: String) {
+    user(username: $username) {
+      _id
+      username
+      firstName
+      lastName
+      email
+      animals {
+        _id
+        name
+      }
+    }
+  }
+`;
 
 // export const QUERY_ME = gql`
 //   query me {
