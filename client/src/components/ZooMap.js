@@ -19,7 +19,7 @@ const mapStyles = [
     ]
   },
   {
-    "featureType": "poi",
+    "featureType": "poi.business",
     "stylers": [
       {
         "visibility": "off"
