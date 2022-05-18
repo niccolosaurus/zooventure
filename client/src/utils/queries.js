@@ -26,20 +26,38 @@ export const QUERY_USERS = gql`
 `;
 
 export const QUERY_USER = gql`
-  query user($username: String) {
-    user(username: $username) {
-      _id
+  query getUser($username: String) {
+    user {
       username
-      firstName
-      lastName
       email
-      animals {
+      plans {
         _id
-        name
+        animals {
+          _id
+          name
+        }
       }
     }
   }
 `;
+
+
+// export const QUERY_USER = gql`
+//   query getUser($username: String) {
+//     user(username: $username) {
+//       _id
+//       username
+//       email
+//       animals {
+//         _id
+//         name
+//       }
+//     }
+//   }
+// `;
+
+
+
 
 // export const QUERY_ME = gql`
 //   query me {

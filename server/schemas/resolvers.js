@@ -11,13 +11,34 @@ const resolvers = {
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
-          path: 'plan.animals',
+          path: 'plans.animals',
           populate: 'name'
         });
+
+        return user;
+
       }
     },
     users: async () => {
-      return await User.find();
+      return await User.find().populate({
+        path: 'plans.animals',
+        populate: 'name'
+      });
+    },
+    plans: async () => {
+      return await Plan.find();
+    },
+    plan: async (parent, { _id }, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate({
+          path: 'plans.animals',
+          populate: 'name'
+        });
+
+        return user.plans.id(_id);
+      }
+
+      throw new AuthenticationError('Not logged in');
     },
   },
   Mutation: {

@@ -10,51 +10,53 @@ db.once('open', async () => {
   await Animal.deleteMany({});
   const animals = await Animal.insertMany(animalData);
   
+  console.log('Animal collection seeded!');
+
+
   await User.deleteMany({});
-  await User.insertMany(userData);
+  // await User.insertMany(userData);
+
+  await User.create((
+    [
+      {
+          "username": "Luke",
+          "email": "luke@gmail.com",
+          "password": "password123",
+          "plans": [
+            {
+              animals: [animals[0]._id, animals[5]._id, animals[10]._id]
+            }
+          ]
+      },
+      {
+          "username": "Leia",
+          "email": "leia@gmail.com",
+          "password": "password123",
+          "plans": [
+            {
+              animals: [animals[1]._id, animals[12]._id, animals[15]._id]
+            }
+          ]
+      },
+      {
+          "username": "Han",
+          "email": "han@gmail.com",
+          "password": "password123",
+          "plans": [
+            {
+              animals: [animals[9]._id, animals[30]._id, animals[37]._id]
+            }
+          ]
+      }
+  ]
+  ))
 
 
+  console.log('User collection seeded!');
 
 
-  console.log('Animal database seeded!');
-  process.exit(0);
+  process.exit(1);
 
 
 
 });
-
-
-
-
-// db.once('open', async () => {
-//   try {
-//     await Animal.deleteMany({});
-//     await User.deleteMany({});
-
-//     await User.create(userData);
-
-//     for (let i = 0; i < animalData.length; i++) {
-//       const { _id, name } = await Animal.create(animalData[i]);
-//       const user = await User.findOneAndUpdate(
-//         { plans: animalData },
-//         {
-//           $addToSet: {
-//             plans: _id,
-//           },
-//         }
-//       );
-//     }
-//   } catch (err) {
-//     console.error(err);
-//     process.exit(1);
-//   }
-
-//   console.log('all done!');
-//   process.exit(0);
-// });
-
-
-
-
-
-
