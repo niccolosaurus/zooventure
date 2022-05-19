@@ -3,27 +3,32 @@ import {
   ADD_ANIMAL,
   REMOVE_ANIMAL,
 } from './actions';
+
+
 export const reducer = (state, action) => {
     switch (action.type) {
         case ADD_ANIMAL:
         return {
             ...state,
-            animals: [...state.aniamls, action.aniaml]
+            planOpen: true,
+            plan: [...state.plan, action.aninal]
         }
         case REMOVE_ANIMAL:
-            let newState = state.cart.filter((product) => {
-                return product._id !== action._id;
+            let newState = state.plan.filter((animal) => {
+                return animal._id !== action._id;
               }); 
         return {
             ...state,
-            animals: newState,
+            planOpen: newState.length > 0,
+            plan: newState,
         }
         default:
             return state;
     }
-};
 
-export function useProductReducer(initialState) {
-    return useReducer(reducer, initialState)
+}
+
+
+export function useAnimalReducer(initialState) {
+    return useReducer(reducer, initialState);
   }
-  

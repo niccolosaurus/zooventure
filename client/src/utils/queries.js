@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 
+// Query to retrieve all animals.
 export const QUERY_ANIMALS = gql`
   query getAnimals {
     animals {
@@ -14,6 +15,7 @@ export const QUERY_ANIMALS = gql`
     }
   }
 `;
+
 
 export const QUERY_USERS = gql`
   query getUsers {
@@ -32,7 +34,7 @@ export const QUERY_USERS = gql`
 `;
 
 export const QUERY_USER = gql`
-  query getUser($username: String) {
+  query getUser {
     user {
       username
       email
@@ -41,29 +43,17 @@ export const QUERY_USER = gql`
         animals {
           _id
           name
+          coord
+          Lat
+          Lon
+          description
+          img
+          funFact
         }
       }
     }
   }
 `;
-
-
-// export const QUERY_USER = gql`
-//   query getUser($username: String) {
-//     user(username: $username) {
-//       _id
-//       username
-//       email
-//       animals {
-//         _id
-//         name
-//       }
-//     }
-//   }
-// `;
-
-
-
 
 // export const QUERY_ME = gql`
 //   query me {
