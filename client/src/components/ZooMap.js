@@ -89,7 +89,7 @@ function ZooMap() {
               key={animal._id}
               position={position}
               onClick={() => getAnimalData(animal)}
-              icon={process.env.PUBLIC_URL + '/assets/images/green_paw_print.png'}
+              icon={process.env.PUBLIC_URL + '/assets/images/paw_icon.png'}
             />
           );
         })}
