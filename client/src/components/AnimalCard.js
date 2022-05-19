@@ -7,6 +7,8 @@ import animalCoord from "../data/animalCoord.json";
 import AccordionHeader from "react-bootstrap/esm/AccordionHeader";
 import 'bootstrap/dist/css/bootstrap.css';
 import "./Accordion.css";
+import { ADD_ANIMAL } from "../utils/actions"
+import { STATES } from "mongoose";
 
 
 function AnimalCard() {
@@ -15,6 +17,31 @@ function AnimalCard() {
     // const [addPlan, {error}] = useMutation(ADD_PLAN, {
     //     update(cache, {data: {}})
     // })
+    const [state, dispatch] = useStoreContext();
+
+    const {
+        _id,
+        name,
+        coord,
+        Lat,
+        Lon,
+        description,
+        img,
+        funFact
+    } = animals;
+
+    const { plan } = state
+    
+    const addAnimalToPlan = () => {
+        const animalInPlan = plan.find((planAnimal) => planAnimal._id === _id)
+        if (animalInPlan) {
+            dispatch({
+                type: ADD_ANIMAL,
+                animal: { ...animals }
+            })
+        }
+    }
+
     return (
 
         <div className="Container" style={{ backgroundImage: `url(${background})`, display: "flex", flexWrap: "wrap", justifyContent: "center", alignContent: 'center' }}>
@@ -27,7 +54,7 @@ function AnimalCard() {
                         </Card.Title>
 
                         <Col>
-                            <Card.Text>
+                            <>
 
 
                 
@@ -48,14 +75,14 @@ function AnimalCard() {
                                     </Accordion.Item>
                                 </Accordion>
 
-                            </Card.Text>
+                            </>
                         </Col>
                         <Col>
-                            <Card.Text>
+                            <>
 
 
 
-                            </Card.Text>
+                            </>
                         </Col>
                         <Col>
 

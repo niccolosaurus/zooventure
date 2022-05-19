@@ -16,7 +16,14 @@ export const ADD_PLAN = gql`
   mutation addPlan($animals: [ID]) {
     addPlan(animals: $animals) {
       animals {
+        _id
         name
+        coord
+        Lat
+        Lon
+        description
+        img
+        funFact
       }
     }
   }
