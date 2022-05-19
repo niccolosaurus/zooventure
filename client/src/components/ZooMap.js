@@ -4,7 +4,10 @@ import { Marker } from "@react-google-maps/api";
 import AnimalCoord from "../data/animalCoord.json";
 import AnimalWindow from "./AnimalWindow";
 
-console.log(AnimalCoord);
+import { useQuery } from '@apollo/client';
+import { QUERY_ANIMALS } from '../utils/queries';
+
+// console.log(AnimalCoord);
 
 // require("dotenv").config();
 
@@ -23,6 +26,10 @@ const center = {
 // };
 
 function ZooMap() {
+
+  // const { data } = useQuery(QUERY_ANIMALS);
+  // console.log(data);
+
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: process.env.REACT_APP_API_KEY,

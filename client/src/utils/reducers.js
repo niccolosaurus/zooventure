@@ -22,11 +22,13 @@ export const reducer = (state, action) => {
             planOpen: newState.length > 0,
             plan: newState,
         }
+        default:
+            return state;
     }
+
 }
 
 
 export function useAnimalReducer(initialState) {
     return useReducer(reducer, initialState);
   }
-  
