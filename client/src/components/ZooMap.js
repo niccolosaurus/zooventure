@@ -8,6 +8,43 @@ console.log(AnimalCoord);
 
 // require("dotenv").config();
 
+const mapStyles = [
+  {
+    "featureType": "administrative",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.business",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  }
+]
+
 const containerStyle = {
   width: "90%",
   height: "100vh",
@@ -53,7 +90,7 @@ function ZooMap() {
 
   const onLoad = React.useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
+    // map.fitBounds(bounds);
     setMap(map);
   }, []);
 
@@ -71,9 +108,10 @@ function ZooMap() {
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
-      zoom={5}
       onLoad={onLoad}
       onUnmount={onUnmount}
+      options= {{styles: mapStyles}}
+      zoom={17}
     >
       {/* Child components, such as markers, info windows, etc. */}
       <>
@@ -88,6 +126,7 @@ function ZooMap() {
               key={animal._id}
               position={position}
               onClick={() => getAnimalData(animal)}
+              icon={process.env.PUBLIC_URL + '/assets/images/green_paw_print.png'}
             />
           );
         })}

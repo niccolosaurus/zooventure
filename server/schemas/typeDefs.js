@@ -16,7 +16,7 @@ const typeDefs = gql`
         _id: ID
         username: String
         email: String
-        plans: Plan
+        plans: [Plan]
     }
 
     type Plan {
@@ -31,8 +31,10 @@ const typeDefs = gql`
 
     type Query {
         animals: [Animal]
-        user: User
-        plans(_id: ID): Plan
+        user(username: String): User
+        users: [User]
+        plans: [Plan]
+        plan(_id: ID): Plan
     }
 
     type Mutation {
