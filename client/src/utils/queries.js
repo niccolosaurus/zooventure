@@ -5,6 +5,12 @@ export const QUERY_ANIMALS = gql`
     animals {
       _id
       name
+      coord
+      Lat
+      Lon
+      description
+      img
+      funFact
     }
   }
 `;
