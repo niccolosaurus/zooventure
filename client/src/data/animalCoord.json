@@ -145,8 +145,9 @@
         "coord": "32.734420, -117.153000",
         "Lat": 32.734420,
         "Lng": -117.153000, 
-        "description": "",
-        "img": "http://"
+        "description": "People usually think of leopards in the savannas of Africa but in the Russian Far East, a rare subspecies has adapted to life in the temperate forests that make up the northern-most part of the species’ range. Similar to other leopards, the Amur leopard can run at speeds of up to 37 miles per hour. This incredible animal has been reported to leap more than 19 feet horizontally and up to 10 feet vertically.",
+        "img": "https://www.thoughtco.com/thmb/K91TfUkmkf3KK54GSV1B7IiNKVo=/650x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-122674006-5438e4b0bb41444eb381ae663d7ff636.jpg",
+        "funFact": "Amur Leopards are solitary mammals and can have territories between 19-116 square miles. That is up to 56,000 football fields!"
     },
     {
         "_id": 16,
@@ -174,8 +175,9 @@
         "coord": "32.737252, -117.151933",
         "Lat": 32.737252,
         "Lng": -117.151933, 
-        "description": "",
-        "img": "http://"
+        "description": "The Dwarf crocodile is a rather small crocodile with short, blunt muzzle and black body except with the under parts, which are yellow in color. The body is covered by bony plates, which form coarse, armored scales on the skin of the animal. These scales protect the crocodile from injury as well as from getting burnt, lying under the hot sun. When the crocodile is submerged, its eyes and nostrils remain above the water surface, allowing the animal to see and breathe. This also helps the crocodile be unspotted while watching for prey and predators. Young crocodiles are identified by yellowish markings on their head and light brown stripes on their body and tail.",
+        "img": "https://www.edgeofexistence.org/wp-content/uploads/2017/11/Osteolaemus-tetraspis_Shutterstock-676x480.jpg",
+        "funFact": "Dwarf crocodiles can climb trees and can sometimes be found in the lower branches."
     },
     {
         "_id": 19,
@@ -312,7 +314,7 @@
         "Lat": 32.733911,
         "Lng": -117.149430, 
         "description": "There are over 3,000 lizard species, but the Komodo dragon wins the prize for being the largest living lizard in the world! It is a type of monitor lizard, an ancient group of reptiles with ancestors that date back more than 100 million years. Komodo dragons were unknown by western scientists until 1912, and their common name came from rumors of a large dragon-like lizard occurring in the Lesser Sunda Islands.",
-        "img": "https://animals.sandiegozoo.org/sites/default/files/2016-11/animals_hero_komodo_dragon_0.jpg",
+        "img": "https://www.nhm.ac.uk/content/dam/nhmwww/discover/komodo-dragon-endangered/komodo-dragon-endangered-tongue-full-width.jpg.thumb.1160.1160.jpg",
         "funFact": "Inside a Komodo dragon’s mouth are about 60 short, sharp teeth designed to cut and tear flesh. They look like shark teeth and have been compared to those of an extinct saber-toothed cat."
     },
     {
@@ -341,8 +343,9 @@
         "coord": "32.733632, -117.150460",
         "Lat": 32.733632,
         "Lng": -117.150460, 
-        "description": "",
-        "img": "http://"
+        "description": "If an alligator can be said to be peaceable, the Chinese alligator is it. It spends its winters brumating or undergoing the reptile version of hibernation. During the warmer months it basks in the sun since it’s cold-blooded, but hunts at night, largely to avoid humans, its only predator. Still, the Chinese alligator’s attempts to steer clear of humanity have only been partially successful, for its conservation status is critically endangered. The animal is hunted for its meat and internal organs, which some believe to have medicinal qualities. Since the skin on its belly is full of bones, it’s not hunted for leather as other crocodilians are.",
+        "img": "https://www.worldatlas.com/r/w960-q80/upload/2b/a5/5b/shutterstock-697612153.jpg",
+        "funFact": "There are only two species of Alligator in the world! The Chinese Alligator and the American Alligator."
     },
     {
         "_id": 36,
@@ -361,7 +364,7 @@
         "Lat": 32.733458,
         "Lng": -117.148694, 
         "description": "The burrowing owl has striking eyebrows, big bright eyes, and long legs. They are about the size of a robin but with a bit more bulk, with a large round head and short tail. Their coloring ranges from dark to sandy brown, with light brown to white spots, and they have a lighter belly. Unlike other owls, the male and female are roughly the same size.",
-        "img": "https://animals.sandiegozoo.org/sites/default/files/2019-04/burrowingowl-04.jpg",
+        "img": "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/rockcms/2022-01/220127-calif-burrowing-owls-ac-924p-907e30.jpg",
         "funFact": "Since burrowing owls spend a lot of time underground, they are much better at tolerating higher levels of carbon dioxide than other birds."
     },
     {
