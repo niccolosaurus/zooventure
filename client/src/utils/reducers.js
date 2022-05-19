@@ -18,5 +18,12 @@ export const reducer = (state, action) => {
             ...state,
             animals: newState,
         }
+        default:
+            return state;
     }
-}
+};
+
+export function useProductReducer(initialState) {
+    return useReducer(reducer, initialState)
+  }
+  
