@@ -8,43 +8,6 @@ console.log(AnimalCoord);
 
 // require("dotenv").config();
 
-const mapStyles = [
-  {
-    "featureType": "administrative",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.business",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "road",
-    "elementType": "labels.icon",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "transit",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  }
-]
-
 const containerStyle = {
   width: "90%",
   height: "100vh",
@@ -110,8 +73,8 @@ function ZooMap() {
       center={center}
       onLoad={onLoad}
       onUnmount={onUnmount}
-      options= {{styles: mapStyles}}
       zoom={17}
+      options={{ mapId: "830da1546c37eea8" }}
     >
       {/* Child components, such as markers, info windows, etc. */}
       <>
