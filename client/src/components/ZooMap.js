@@ -10,7 +10,7 @@ console.log(AnimalCoord);
 
 const containerStyle = {
   width: "90%",
-  height: "100vh",
+  height: "70vh",
 };
 //32.736025, -117.151387
 const center = {
