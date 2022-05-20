@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Row, Col, Accordion, Tab, Tabs, Button } from 'react-bootstrap';
 import logo from '../logo.svg';
@@ -8,44 +8,70 @@ import AccordionHeader from "react-bootstrap/esm/AccordionHeader";
 import 'bootstrap/dist/css/bootstrap.css';
 import "./Accordion.css";
 import { ADD_ANIMAL } from "../utils/actions"
-import { STATES } from "mongoose";
+import { useStoreContext } from "../utils/GlobalState";
+import { QUERY_ANIMALS } from "../utils/queries";
+import {useQuery} from '@apollo/client'
+import Header from "./Header";
+
+// import { STATES } from "mongoose";
 
 
 function AnimalCard() {
-    const animals = animalCoord;
-    const [key, setKey] = useState('');
-    // const [addPlan, {error}] = useMutation(ADD_PLAN, {
+    // const [result] = useQuery({
+    //     query: QUERY_ANIMALS,
+    //   });
+    const { data, loading, error } = useQuery(QUERY_ANIMALS);
+
+
+    //   const { data, fetching, error } = result;
+    
+    // const animals = animalCoord;
+    
+    // const [addAnimal, {error}] = useMutation(ADD_PLAN, {
     //     update(cache, {data: {}})
     // })
-    const [state, dispatch] = useStoreContext();
-
-    const {
-        _id,
-        name,
-        coord,
-        Lat,
-        Lon,
-        description,
-        img,
-        funFact
-    } = animals;
-
-    const { plan } = state
     
-    const addAnimalToPlan = () => {
-        const animalInPlan = plan.find((planAnimal) => planAnimal._id === _id)
-        if (animalInPlan) {
-            dispatch({
-                type: ADD_ANIMAL,
-                animal: { ...animals }
-            })
-        }
-    }
+    // const useStoreContext = () => {
+    //     return useContext(StoreContext);
+    //   };
+//       const [state, dispatch] = useStoreContext();
+
+
+//     const {
+//         _id,
+//         name,
+//         coord,
+//         Lat,
+//         Lon,
+//         description,
+//         img,
+//         funFact
+//     } = animals;
+
+//     const { plan } = state
+
+//     useEffect (() => {
+//     const addAnimalToPlan = () => {
+//         const animalInPlan = plan.find((planAnimal) => planAnimal._id === _id)
+//         if (animalInPlan) {
+//             dispatch({
+//                 type: ADD_ANIMAL,
+//                 animal: { ...animals }
+//             })
+//         }
+//     }
+// })
+
+if (loading) return "Loading...";
+if (error) return <pre>{error.message}</pre>
 
     return (
-
+        
         <div className="Container" style={{ backgroundImage: `url(${background})`, display: "flex", flexWrap: "wrap", justifyContent: "center", alignContent: 'center' }}>
-            {animals.map((animal) => (
+            <Header/>
+           
+        
+            {data.animals.map((animal) => (
                 <Card variant="success" key={animal._id} style={{ backgroundColor: "#b58404", width: "20rem", margin: "20px" }}>
                     <Card.Img style={{ alignContent: "left" }} src={animal.img} />
                     <Card.Body>
@@ -56,19 +82,15 @@ function AnimalCard() {
                         <Col>
                             <>
 
-
-                
-
-
                                 <Accordion variant="warning" style={{ backgroundColor: "#b58404" }} flush>
-                                    <Accordion.Item eventKey="0" style={{backgroundColor: "#b58404"}}>
-    <AccordionHeader variant="warning" style={{backgroundColor: "#b58404"}}>Description</AccordionHeader>
-    <Accordion.Body >
-      {animal.description}
-    </Accordion.Body>
-  </Accordion.Item> 
+                                    <Accordion.Item eventKey="0" style={{ backgroundColor: "#b58404" }}>
+                                        <AccordionHeader variant="warning" style={{ backgroundColor: "#b58404" }}>Description</AccordionHeader>
+                                        <Accordion.Body >
+                                            {animal.description}
+                                        </Accordion.Body>
+                                    </Accordion.Item>
                                     <Accordion.Item style={{ backgroundColor: "#b58404" }} eventKey="1">
-                                        <Accordion.Header style={{ backgroundColor: "#b58404" }} r>Fun Facts</Accordion.Header>
+                                        <Accordion.Header style={{ backgroundColor: "#b58404" }}>Fun Facts</Accordion.Header>
                                         <Accordion.Body>
                                             {animal.funFact}
                                         </Accordion.Body>
@@ -79,9 +101,6 @@ function AnimalCard() {
                         </Col>
                         <Col>
                             <>
-
-
-
                             </>
                         </Col>
                         <Col>
@@ -90,11 +109,12 @@ function AnimalCard() {
 
                     </Card.Body>
                     <Card.Footer style={{ textAlign: "center" }}>
-                        <Button size="lg" variant="warning" id="add-plan">Add Animal to Plan</Button>
+                        <Button  size="lg" variant="warning" id="add-plan">Add Animal to Plan</Button>
                     </Card.Footer>
 
                 </Card>
             ))}
+           
         </div>
 
 
