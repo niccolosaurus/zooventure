@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import { Marker } from "@react-google-maps/api";
+
+// TODO: Remove AnimalCoord on cleanup
 import AnimalCoord from "../data/animalCoord.json";
 import AnimalWindow from "./AnimalWindow";
 
 import { useQuery } from '@apollo/client';
 import { QUERY_ANIMALS } from '../utils/queries';
 
-// console.log(AnimalCoord);
-
-// require("dotenv").config();
 
 const containerStyle = {
   width: "90%",
@@ -21,14 +20,9 @@ const center = {
   lng: -117.151387,
 };
 
-// const onLoad = (marker) => {
-//   console.log("marker: ", marker);
-// };
-
 function ZooMap() {
 
-  // const { data } = useQuery(QUERY_ANIMALS);
-  // console.log(data);
+  const { loading, data, error } = useQuery(QUERY_ANIMALS);
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -42,7 +36,7 @@ function ZooMap() {
     name: "Flamingos",
     coord: "32.735107, -117.149889",
     Lat: 32.735107,
-    Lng: -117.149889,
+    Lon: -117.149889,
     description:
       "With their pink and crimson plumage, long legs and necks, and strongly hooked bills, flamingos cannot be mistaken for any other type of bird. The flamingo’s pink or reddish color comes from the rich sources of carotenoid pigments (like the pigments of carrots) in the algae and small crustaceans the birds eat.",
     img: "https://animals.sandiegozoo.org/sites/default/files/2017-07/animals-flamingo-feeding.jpg",
@@ -50,13 +44,13 @@ function ZooMap() {
       "These hardy little penguins can hold their breath over 2 minutes and dive over 400 feet deep!",
   });
 
-  console.log({ showAnimalWindow });
+  // console.log({ showAnimalWindow });
 
   const closeAnimalWindow = () => {
     setShowAnimalWindow(false);
   };
 
-  console.log(singleAnimal);
+  // console.log(singleAnimal);
 
   const onLoad = React.useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds(center);
@@ -74,6 +68,9 @@ function ZooMap() {
     setShowAnimalWindow(true);
   };
 
+  if(loading) return "Loading..";
+  if(error) return <pre>{error.message}</pre>
+
   return isLoaded ? (
     <GoogleMap
       mapContainerStyle={containerStyle}
@@ -85,11 +82,11 @@ function ZooMap() {
     >
       {/* Child components, such as markers, info windows, etc. */}
       <>
-        {AnimalCoord.map((animal) => {
+        {data.animals.map((animal) => {
           const position = {
             lat: animal.Lat,
-            lng: animal.Lng,
-          };
+            lng: animal.Lon,
+          };          
           return (
             <Marker
               // onLoad={onLoad}
