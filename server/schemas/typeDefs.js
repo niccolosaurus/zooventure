@@ -43,9 +43,9 @@ const typeDefs = gql`
         addUser(username: String, email: String, password: String): Auth
         addPlan(animals: [ID]): Plan
         updateUser(username: String, email: String, password: String): User
+        createAnimal(name: String!, coord: String, Lat: Float, Lon: Float, description: String, img: String, funFact: String ): Animal
         login(email: String, password: String): Auth
     }
-
 `;
 
 module.exports = typeDefs
