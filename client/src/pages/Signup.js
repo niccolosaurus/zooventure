@@ -5,6 +5,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
+import Header from '../components/Header';
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -44,6 +45,7 @@ const Signup = () => {
     <main className="flex-row justify-center">
       <div >
         <div className="card" style={{ display: "flex", alignItems: "center", height: "100vh",justifyContent: 'start',backgroundImage: `url(${background})` }} >
+          <Header/>
           {/* <h4  style={{margin: '10px' ,borderRadius:"10px"}}  className="card-header bg-dark text-light p-2" >Sign up to begin your adventure or <a href='/login'>login</a></h4> */}
           {/* <div style={{ height: "100vh" }} className="card-body"> */}
             {data ? (
