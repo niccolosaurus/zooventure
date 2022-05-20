@@ -20,8 +20,10 @@ export const QUERY_ANIMALS = gql`
 export const QUERY_USERS = gql`
   query getUsers {
     users {
+      _id
       username
       email
+      admin
       plans {
         _id
         animals {
@@ -36,8 +38,10 @@ export const QUERY_USERS = gql`
 export const QUERY_USER = gql`
   query getUser {
     user {
+      _id
       username
       email
+      admin
       plans {
         _id
         animals {

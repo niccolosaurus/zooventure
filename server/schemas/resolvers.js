@@ -10,7 +10,7 @@ const resolvers = {
     },
     animal: async (parent, { _id }) => {
       return await Animal.findById(_id);
-    },
+    }, // maybe replace args below with {_id}
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
