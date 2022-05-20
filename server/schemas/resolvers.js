@@ -70,6 +70,15 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+    updateAnimal: async (parent, args, context) => {
+
+      return await Animal.findByIdAndUpdate(_id, { $set: { name, coord, Lat, Lon, description, img, funFact } }, { new: true });
+
+    },
+    createAnimal: async (parent, { name, coord, Lat, Lon, description, img, funFact }) => {
+      // Create and return the new Animal object
+      return await Animal.create({ name, coord, Lat, Lon, description, img, funFact });
+    },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
