@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 
 import Auth from '../utils/auth';
 
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Navbar, Container, Nav } from 'react-bootstrap'; 
 const Header = () => {
 
   const logout = (event) => {
@@ -10,32 +13,57 @@ const Header = () => {
   };
 
   return (
-    <div className="card bg-white card-rounded w-50">
-      <div className="card-header bg-dark text-center">
-        <h1>Zooventure!</h1>
-      </div>
-      <div>
+    
+    
+       <Navbar style={{width: "100%", backgroundColor: 'rgba(52, 52, 52, 0.8)' }}  expand="bg" >
+    <Container style={{width: "100%"}}>
+      <Navbar.Brand style={{color: "white"}} href="/"><strong>Zooventure</strong></Navbar.Brand>
+       
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="me-auto">
           {Auth.loggedIn() ? (
             <>
-              <Link className="btn btn-lg btn-primary m-2" to="/me">
+       
+          
+              <Nav.Link style={{color: "white"}} className="nav-link" href="/me">
                 My Trip
-              </Link>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
+              </Nav.Link>
+              
+              <Nav.Link style={{color: "white"}} className="nav-link" to='/'  onClick={logout}>
                 Logout
-              </button>
+              </Nav.Link>
+
+               
+             
+             
             </>
           ) : (
             <>
-              <Link className="btn btn-lg btn-primary m-2" to="/login">
+    
+            
+         
+              <Nav.Link style={{color: "white"}} className="nav-link active" href="/login">
                 Login
-              </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
+              </Nav.Link>
+     
+              <Nav.Link style={{color: "white"}} className="nav-link active" href="/signup">
                 Signup
-              </Link>
+              </Nav.Link>
+            
+           
+             
             </>
           )}
-        </div>
-    </div>
+          <Nav.Link style={{color: "white"}} className="nav-link active" href="/">
+                Home
+              </Nav.Link>
+          </Nav>
+            </Navbar.Collapse>
+            </Container>
+        </Navbar>
+       
+  
   );
 };
 
