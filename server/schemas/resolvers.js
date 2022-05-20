@@ -8,6 +8,9 @@ const resolvers = {
     animals: async () => {
       return await Animal.find();
     },
+    animal: async (parent, { _id }) => {
+      return await Animal.findById(_id);
+    },
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({

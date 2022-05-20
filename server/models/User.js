@@ -22,12 +22,11 @@ const userSchema = new Schema({
         required: true,
         minlength: 5,
       },
-      plans: [Plan.schema
-          // {
-          //     type: Schema.Types.ObjectId,
-          //     ref: 'Animal',
-          // }
-      ]
+      admin: {
+        type: Boolean,
+        required: false,
+      },
+      plans: [Plan.schema]
 });
 
 userSchema.pre('save', async function (next) {
