@@ -15,7 +15,7 @@ import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: "http://localhost:3001/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -27,6 +27,7 @@ const authLink = setContext((_, { headers }) => {
       ...headers,
       authorization: token ? `Bearer ${token}` : "",
     },
+    
   };
 });
 
@@ -39,7 +40,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-      <Header />
+      
         <Routes>
           <Route
             path="/"
