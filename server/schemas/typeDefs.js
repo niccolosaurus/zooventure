@@ -16,6 +16,7 @@ const typeDefs = gql`
         _id: ID
         username: String
         email: String
+        admin: Boolean
         plans: [Plan]
     }
 
@@ -31,6 +32,7 @@ const typeDefs = gql`
 
     type Query {
         animals: [Animal]
+        animal(_id: ID!): Animal
         user: User
         users: [User]
         plans: [Plan]
