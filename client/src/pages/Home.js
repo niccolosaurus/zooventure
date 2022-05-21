@@ -1,10 +1,13 @@
 import { useState } from "react";
 import DayPlanner from "../components/DayPlanner";
-import ZooMap from "../components/ZooMap";
+import HomePage from "../components/HomePage";
 
 const Home = () => {
-  // return (
-  // );
+  return (
+    <div>
+      <HomePage />
+    </div>
+  );
 };
 
 export default Home;
