@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Animal, Plan } = require('../models')
+const { User, Animal, Plan, Product } = require('../models')
 const { signToken } = require('../utils/auth')
 
 
@@ -37,6 +37,9 @@ const resolvers = {
       }
 
       throw new AuthenticationError('Not logged in');
+    },
+    products: async () => {
+      return await Product.find();
     },
     // plan: async (parent, { _id }) => {
     //   return await Plan.findPlan(_id).populate();
