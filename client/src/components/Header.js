@@ -56,8 +56,11 @@ const Header = () => {
             </>
           )}
           <Nav.Link style={{color: "white"}} className="nav-link active" href="/">
-                Home
-              </Nav.Link>
+            Home
+          </Nav.Link>
+          <Nav.Link style={{color: "white"}} className="nav-link active" href="/map">
+            Map
+          </Nav.Link>
           </Nav>
             </Navbar.Collapse>
             </Container>
