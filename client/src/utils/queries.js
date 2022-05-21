@@ -29,6 +29,12 @@ export const QUERY_USERS = gql`
         animals {
           _id
           name
+          coord
+          Lat
+          Lon
+          description
+          img
+          funFact
         }
       }
     }
@@ -36,7 +42,7 @@ export const QUERY_USERS = gql`
 `;
 
 export const QUERY_USER = gql`
-  query getUser {
+   {
     user {
       _id
       username
