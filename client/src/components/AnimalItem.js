@@ -5,7 +5,7 @@ import { Card, Row, Col, Accordion, Tab, Tabs, Button } from 'react-bootstrap';
 import "./Accordion.css";
 
 
-function AnimalItem(item) {
+function AnimalItem(input) {
   //Define Variables
   const {
     _id,
@@ -14,7 +14,7 @@ function AnimalItem(item) {
     funFact,
     img,
 
-  } = item
+  } = input
 
 
   return (
