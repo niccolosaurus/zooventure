@@ -37,6 +37,12 @@ const typeDefs = gql`
         price: Float
     }
 
+    type Order {
+        _id: ID
+        purchaseDate: String
+        products: [Product]
+    } 
+
     type Query {
         animals: [Animal]
         animal(_id: ID!): Animal
@@ -45,6 +51,7 @@ const typeDefs = gql`
         plans(username: String): [Plan]
         plan(_id: ID!): Plan
         products: [Product]
+        order(_id: ID!): Order
     }
 
     type Mutation {
@@ -54,6 +61,7 @@ const typeDefs = gql`
         createAnimal(name: String!, coord: String, Lat: Float, Lon: Float, description: String, img: String, funFact: String ): Animal
         updateAnimal(_id: ID!, name: String, coord: String, Lat: Float, Lon: Float, description: String, img: String, funFact: String): Animal
         login(email: String!, password: String!): Auth
+        addOrder(products: [ID]!): Order
     }
 `;
 
