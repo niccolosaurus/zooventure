@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import { Marker } from "@react-google-maps/api";
 
-// TODO: Remove AnimalCoord on cleanup
-import AnimalCoord from "../data/animalCoord.json";
 import AnimalWindow from "./AnimalWindow";
 
 import { useQuery } from '@apollo/client';
@@ -29,7 +27,8 @@ function ZooMap() {
     googleMapsApiKey: process.env.REACT_APP_API_KEY,
   });
 
-  const [map, setMap] = React.useState(null);
+  const [map, setMap] = useState(null);
+
   const [showAnimalWindow, setShowAnimalWindow] = useState(false);
   const [singleAnimal, setSingleAnimal] = useState({
     _id: 1,
@@ -44,17 +43,11 @@ function ZooMap() {
       "These hardy little penguins can hold their breath over 2 minutes and dive over 400 feet deep!",
   });
 
-  // console.log({ showAnimalWindow });
-
   const closeAnimalWindow = () => {
     setShowAnimalWindow(false);
   };
 
-  // console.log(singleAnimal);
-
   const onLoad = React.useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds(center);
-    // map.fitBounds(bounds);
     setMap(map);
   }, []);
 
@@ -73,6 +66,7 @@ function ZooMap() {
 
   return isLoaded ? (
     <GoogleMap
+      id="gmap-map"
       mapContainerStyle={containerStyle}
       center={center}
       onLoad={onLoad}
@@ -84,13 +78,12 @@ function ZooMap() {
       <>
         {data.animals.map((animal) => {
           const position = {
-            lat: animal.Lat,
             lng: animal.Lon,
+            lat: animal.Lat,
           };          
           return (
             <Marker
-              // onLoad={onLoad}
-              key={animal._id}
+              key={Math.random()}
               position={position}
               onClick={() => getAnimalData(animal)}
               icon={process.env.PUBLIC_URL + '/assets/images/paw_icon.png'}
@@ -110,4 +103,4 @@ function ZooMap() {
   );
 }
 
-export default React.memo(ZooMap);
+export default ZooMap;

@@ -11,16 +11,11 @@ const resolvers = {
     animal: async (parent, { _id }) => {
       return await Animal.findById(_id);
     },
-    user: async (parent, args, context) => {
-      if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          path: 'plans.animals',
-          populate: 'name'
-        });
-
-        return user;
-
-      }
+    user: async (parent, { _id }) => {
+      return await User.findById(_id).populate({
+        path: 'plans.animals',
+        populate: 'name'
+      });
     },
     users: async () => {
       return await User.find().populate({
@@ -29,7 +24,11 @@ const resolvers = {
       });
     },
     plans: async () => {
-      return await Plan.find();
+      return await Plan.find().populate({
+        path: 'animals',
+        populate: 'name'
+      });
+
     },
     plan: async (parent, { _id }, context) => {
       if (context.user) {
@@ -43,6 +42,9 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+    // plan: async (parent, { _id }) => {
+    //   return await Plan.findPlan(_id).populate();
+    // },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -70,7 +72,7 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    updateAnimal: async (parent, args, context) => {
+    updateAnimal: async (parent, { _id, name, coord, Lat, Lon, description, img, funFact }, context) => {
 
       return await Animal.findByIdAndUpdate(_id, { $set: { name, coord, Lat, Lon, description, img, funFact } }, { new: true });
 
