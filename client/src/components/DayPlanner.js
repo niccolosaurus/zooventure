@@ -14,7 +14,7 @@ function DayPlanner () {
     return (
         <div style={{width: "300px"}}>
            <ListGroup >
-           {data.users.plans.animals.map((animal) => (
+           {data.animals.map((animal) => (
                      <Card style={{backgroundColor: " rgb(14, 99, 41, .8)"}}>
                          
                          <Card.Header style={{textAlign: 'center'}}>{animal.name}</Card.Header>
