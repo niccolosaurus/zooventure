@@ -19,8 +19,8 @@ function AnimalItem(input) {
 
   return (
     
-
-      <Card variant="success"  style={{ border: " 10px solid #563e01", backgroundColor: "#ebb905", width: "20rem", margin: "20px" }}>
+    
+      <Card key={_id} variant="success"  style={{ border: " 10px solid #563e01", backgroundColor: "#ebb905", width: "20rem", margin: "20px" }}>
         <img style={{ border: " 10px solid #edac02", alignContent: "left" }} src={img} />
         <Card.Body>
           <Card.Title style={{ fontSize: "25px", textDecoration: "underline", textAlign: "center" }}>

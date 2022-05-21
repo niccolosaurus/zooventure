@@ -44,8 +44,8 @@ const Signup = () => {
   return (
     <main className="flex-row justify-center">
       <div >
-        <div className="card" style={{ display: "flex", alignItems: "center", height: "100vh",justifyContent: 'start',backgroundImage: `url(${background})` }} >
-          <Header/>
+        <div className="card" style={{ borderRadius:"0px", display: "flex", alignItems: "center", height: "100vh",justifyContent: 'start',backgroundImage: `url(${background})` }} >
+      
           {/* <h4  style={{margin: '10px' ,borderRadius:"10px"}}  className="card-header bg-dark text-light p-2" >Sign up to begin your adventure or <a href='/login'>login</a></h4> */}
           {/* <div style={{ height: "100vh" }} className="card-body"> */}
             {data ? (

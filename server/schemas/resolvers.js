@@ -11,17 +11,25 @@ const resolvers = {
     animal: async (parent, { _id }) => {
       return await Animal.findById(_id);
     },
-    user: async (parent, { _id }) => {
-      return await User.findById(_id).populate({
+    user: async (parent, args, context) => {
+      console.log(context, "more context")
+
+      if(context.user) {
+      const user = await User.findById(context.user._id).populate({
         path: 'plans.animals',
         populate: 'name'
       });
+      return user
+    } throw new AuthenticationError("err")
+      
+      
     },
     users: async () => {
       return await User.find().populate({
         path: 'plans.animals',
         populate: 'name'
       });
+      
     },
     plans: async () => {
       return await Plan.find().populate('animal');
