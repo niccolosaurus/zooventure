@@ -24,11 +24,7 @@ const resolvers = {
       });
     },
     plans: async () => {
-      return await Plan.find().populate({
-        path: 'animals',
-        populate: 'name'
-      });
-
+      return await Plan.find().populate('animal');
     },
     plan: async (parent, { _id }, context) => {
       if (context.user) {
