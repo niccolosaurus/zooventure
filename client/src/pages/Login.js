@@ -44,8 +44,8 @@ const Login = (props) => {
   return (
     <main className="flex-row justify-center">
       <div>
-        <div className="card" style={{height:"100vh" , display: "flex", alignItems: "center", justifyContent: 'start', backgroundImage: `url(${background})` }} >
-          <Header/>
+        <div className="card" style={{borderRadius:"0px", height:"100vh" , display: "flex", alignItems: "center", justifyContent: 'start', backgroundImage: `url(${background})` }} >
+       
           {/* <h4 style={{textAlign:'center', marginTop: "10px", marginBottom: '10px' ,borderRadius:"10px", color:"white"}}>Login to make a plan or <a href='/signup'>signup</a></h4> */}
         \
             {data ? (
