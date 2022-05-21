@@ -35,7 +35,7 @@ const typeDefs = gql`
         animal(_id: ID!): Animal
         user(_id: ID!): User
         users: [User]
-        plans: [Plan]
+        plans(username: String): [Plan]
         plan(_id: ID!): Plan
     }
 
@@ -44,8 +44,8 @@ const typeDefs = gql`
         addPlan(animals: [ID]): Plan
         updateUser(username: String, email: String, password: String): User
         createAnimal(name: String!, coord: String, Lat: Float, Lon: Float, description: String, img: String, funFact: String ): Animal
-        updateAnimal(_id: ID, name: String, coord: String, Lat: Float, Lon: Float, description: String, img: String, funFact: String): Animal
-        login(email: String, password: String): Auth
+        updateAnimal(_id: ID!, name: String, coord: String, Lat: Float, Lon: Float, description: String, img: String, funFact: String): Animal
+        login(email: String!, password: String!): Auth
     }
 `;
 
