@@ -76,7 +76,6 @@ function ZooMap() {
     >
       {/* Child components, such as markers, info windows, etc. */}
       <>
-        {console.log(JSON.stringify(data.animals))}
         {data.animals.map((animal) => {
           const position = {
             lng: animal.Lon,
