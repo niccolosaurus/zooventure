@@ -15,7 +15,7 @@ const MyAnimalList = (input) => {
 
   
   return (
-    <div className="animalList">
+    
     <Card key={_id} variant="success"  style={{ border: " 10px solid #563e01", backgroundColor: "#ebb905", width: "300px", margin: "20px" }}>
         <img style={{ border: " 10px solid #edac02", alignContent: "left" }} src={img} />
         <Card.Body>
@@ -59,7 +59,7 @@ const MyAnimalList = (input) => {
            <Button style={{borderRadius: "0px"  ,height: "100%", width: "100%"}} href='' type='click' size="lg" variant="warning" id="add-plan">Remove Animal from plan</Button>
          </Card.Footer> 
       </Card>
-    </div>
+  
   );
 };
 
