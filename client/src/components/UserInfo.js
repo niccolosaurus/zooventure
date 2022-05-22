@@ -10,9 +10,9 @@ import background from "../paws.jpeg";
 import MyZooMap from "./MyZooMap";
 
 function UserInfo() {
-    const { data } = useQuery(QUERY_USER);
+    const { data, error } = useQuery(QUERY_USER);
     let user;
-
+console.log({error})
     if (data) {
        
         user = data.user;
