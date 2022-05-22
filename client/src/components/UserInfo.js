@@ -25,15 +25,16 @@ function UserInfo() {
          
             {user ? (
                 <>
-                    <Card style={{borderRadius: "0px", backgroundColor: "#876445", width: "100%" }}>
+                    <Card style={{borderRadius: "0px", backgroundColor: "#CA965C", width: "100%" }}>
                         <Card.Header style={{borderBottom: "3px solid black" ,width: "100%" ,color: "black", fontSize: "60px" ,textAlign: "center", fontWeight: "60px" }}>
-                           {user.username}
+                          Welcome {user.username}
                         </Card.Header>
                         <Card.Body>
+                        
                             <div  style={{marginBottom: "20px", display: "flex", flexWrap: "wrap", justifyContent: "center", alignContent: 'center'}}>
                             <MyZooMap/>
                             </div>
-                        <div style={{backgroundColor: "#CA965C", display: "flex", flexWrap: "wrap", justifyContent: "center", alignContent: 'center', width: '100%'}}>
+                        <div style={{backgroundColor: "#EEC373", display: "flex", flexWrap: "wrap", justifyContent: "center", alignContent: 'center', width: '100%'}}>
                             <Card.Header style={{borderRadius: "0px" , width: "100%", color: "black", fontWeight: "10px", fontSize: "20px" ,textAlign: "left"}}>Animals left to see</Card.Header>
 
                             
