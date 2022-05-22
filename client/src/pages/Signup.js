@@ -63,8 +63,8 @@ const Signup = () => {
                   <div className='card-header'>
                     <h4 style={{ textAlign: 'center', margin: "10px", borderRadius: "10px", color: "white" }} >Signup to begin planning your day or <a href='/login'>login</a></h4>
                   </div>
-                  <div style={{ margin: '10px' }} class="mb-3 form-group">
-                    <label style={{ color: 'white' }} for="name" className="form-label"><strong>Username</strong></label>
+                  <div style={{ margin: '10px' }} className="mb-3 form-group">
+                    <label style={{ color: 'white' }} htmlFor="name" className="form-label"><strong>Username</strong></label>
                     <input
                       className="form-control"
                       placeholder="Your username"
@@ -74,8 +74,8 @@ const Signup = () => {
                       onChange={handleChange}
                     />
                   </div>
-                  <div style={{ margin: '10px' }} class="mb-3 form-group">
-                    <label style={{ color: 'white' }} for="email" class="form-label"><strong>Email address </strong></label>
+                  <div style={{ margin: '10px' }} className="mb-3 form-group">
+                    <label style={{ color: 'white' }} htmlFor="email" className="form-label"><strong>Email address </strong></label>
                     <input
                       className="form-control"
                       placeholder="Your email"
@@ -85,8 +85,8 @@ const Signup = () => {
                       onChange={handleChange}
                     />
                   </div>
-                  <div style={{ margin: '10px' }} class="mb-3 form-group">
-                    <label style={{ color: 'white' }} for="password" class="form-label"><strong>Password</strong></label>
+                  <div style={{ margin: '10px' }} className="mb-3 form-group">
+                    <label style={{ color: 'white' }} htmlFor="password" className="form-label"><strong>Password</strong></label>
 
                     <input
                       className="form-control"
