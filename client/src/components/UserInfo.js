@@ -49,6 +49,7 @@ console.log({error})
                                                 name={animal.name}
                                                 description={animal.description}
                                                 funFact={animal.funFact}
+                                                animal={animal}
                                             />
 
                                         ))}

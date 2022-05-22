@@ -1,19 +1,40 @@
 import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Card, Row, Col, Accordion, Tab, Tabs, Button } from 'react-bootstrap';
-const MyAnimalList = (input) => {
- 
+import { REMOVE_PLAN } from '../utils/mutations';
+import {useMutation, useQuery} from '@apollo/client'
 
+
+
+const MyAnimalList = (props) => {
+ 
   const {
     _id,
     description,
     name,
     funFact,
     img,
+    animal,
 
-  } = input
+  } = props
 
-  
+  const [removePlan, {data, error}] = useMutation(REMOVE_PLAN);
+
+  const revisedAnimal = {
+    _id: animal._id,
+    name: animal.name,
+    coord: animal.coord,
+    // Lat: parseFloat(animal.Lat),
+    // Lon: parseFloat(animal.Lon),
+    Lat: animal.Lat,
+    Lon: animal.Lon,
+    description: animal.description,
+    img: animal.img,
+    funFact: animal.funFact
+  }
+
+  console.log({data})
+
   return (
     
     <Card key={_id} variant="success"  style={{ border: " 10px solid #563e01", backgroundColor: "#ebb905", width: "300px", margin: "20px" }}>
@@ -56,7 +77,7 @@ const MyAnimalList = (input) => {
         </Card.Body>
          
          <Card.Footer style={{ padding: "0px",margin: "0px" , textAlign: "center" }}>
-           <Button style={{borderRadius: "0px"  ,height: "100%", width: "100%"}} href='' type='click' size="lg" variant="warning" id="add-plan">Remove Animal from plan</Button>
+           <Button style={{borderRadius: "0px"  ,height: "100%", width: "100%"}} href='' type='click' size="lg" variant="warning" id="add-plan" onClick={() => removePlan({ variables: { animals: revisedAnimal._id } })}>Remove Animal from plan</Button>
          </Card.Footer> 
       </Card>
   

@@ -35,7 +35,7 @@ function AnimalItem(props) {
     funFact: animal.funFact
   }
 
-console.log({error})
+// console.log({error})
 
 // const { data } = await addOrder({ variables: { animals } });
 console.log({data})
