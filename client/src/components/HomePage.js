@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Row, Col, Accordion, Tab, Tabs, Button } from "react-bootstrap";
 import { Routes, Route, Link } from "react-router-dom";
+import "./HomePage.css";
 
 function HomePage() {
   return (
@@ -11,7 +12,7 @@ function HomePage() {
         flexWrap: "wrap",
         justifyContent: "center",
         alignContent: "center",
-        margin: "20px",
+        backgroundColor: "#ECB390",
       }}
     >
       <div style={{ margin: "20px" }}>
