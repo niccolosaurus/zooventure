@@ -7,13 +7,13 @@ import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import Header from '../components/Header';
 
-const Signup = () => {
+const Signup = (props) => {
   const [formState, setFormState] = useState({
-    name: '',
+    username: '',
     email: '',
     password: '',
   });
-  const [addProfile, { error, data }] = useMutation(ADD_USER);
+  const [addUser, { error, data }] = useMutation(ADD_USER);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -28,18 +28,17 @@ const Signup = () => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
-
-    try {
-      const { data } = await addProfile({
-        variables: { ...formState },
-      });
-
-      Auth.login(data.addProfile.token);
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  console.log(formState);
+    const mutationResponse = await addUser({
+      variables: {
+        username: formState.username,
+        email: formState.email,
+        password: formState.password,
+    },
+  });
+  const token = mutationResponse.data.addUser.token;
+  Auth.login(token);
+};
 
   return (
     <main className="flex-row justify-center">
@@ -68,8 +67,9 @@ const Signup = () => {
                     <input
                       className="form-control"
                       placeholder="Your username"
-                      name="name"
+                      name="username"
                       type="text"
+                      id= "name"
                       value={formState.name}
                       onChange={handleChange}
                     />
@@ -81,6 +81,7 @@ const Signup = () => {
                       placeholder="Your email"
                       name="email"
                       type="email"
+                      id="email"
                       value={formState.email}
                       onChange={handleChange}
                     />
@@ -93,6 +94,7 @@ const Signup = () => {
                       placeholder="******"
                       name="password"
                       type="password"
+                      id="password"
                       value={formState.password}
                       onChange={handleChange}
                     />
