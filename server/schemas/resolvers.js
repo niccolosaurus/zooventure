@@ -101,6 +101,18 @@ const resolvers = {
       // Create and return the new Animal object
       return await Animal.create({ name, coord, Lat, Lon, description, img, funFact });
     },
+    addOrder: async (parent, { products }, context) => {
+      console.log(context);
+      if (context.user) {
+        const order = new Order({ products });
+
+        await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+
+        return order;
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 

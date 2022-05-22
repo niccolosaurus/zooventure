@@ -5,7 +5,7 @@ import { Marker } from "@react-google-maps/api";
 import AnimalWindow from "./AnimalWindow";
 
 import { useQuery } from "@apollo/client";
-import { QUERY_ANIMALS } from "../utils/queries";
+import { QUERY_USER } from "../utils/queries";
 
 const containerStyle = {
   width: "90%",
@@ -17,8 +17,8 @@ const center = {
   lng: -117.151387,
 };
 
-function ZooMap() {
-  const { loading, data, error } = useQuery(QUERY_ANIMALS);
+function MyZooMap() {
+  const { loading, data, error } = useQuery(QUERY_USER);
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -52,8 +52,7 @@ function ZooMap() {
   if (loading) return "Loading..";
   if (error) return <pre>{error.message}</pre>;
 
-  console.log(data);
-  console.log({ showAnimalWindow });
+  
 
   if (data && isLoaded) {
     return (
@@ -69,12 +68,12 @@ function ZooMap() {
         {/* Child components, such as markers, info windows, etc. */}
         <>
           {data &&
-            data?.animals?.map((animal) => {
+            data?.user?.plans[0]?.animals?.map((animal) => {
               const position = {
                 lng: animal.Lon,
                 lat: animal.Lat,
               };
-              console.log({ animal });
+             
               return (
                 <Marker
                   // key={animal._id}
@@ -100,4 +99,4 @@ function ZooMap() {
   }
 }
 
-export default ZooMap;
+export default MyZooMap;

@@ -8,8 +8,8 @@ const divStyle = {
   padding: 15,
 };
 
-
 const AnimalWindow = ({ animal, onCloseClick }) => {
+
   const position = {
     lat: animal.Lat,
     lng: animal.Lon,
@@ -32,6 +32,7 @@ const AnimalWindow = ({ animal, onCloseClick }) => {
       /> 
     </InfoWindow>
   );
+
 };
 
 export default AnimalWindow;
