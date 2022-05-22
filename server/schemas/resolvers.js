@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Animal, Plan, Product, Order } = require('../models')
+const { User, Animal, Plan } = require('../models')
 const { signToken } = require('../utils/auth')
 
 
@@ -42,21 +42,6 @@ const resolvers = {
         });
 
         return user.plans.id(_id);
-      }
-
-      throw new AuthenticationError('Not logged in');
-    },
-    products: async () => {
-      return await Product.find();
-    },
-    order: async (parent, { _id }, context) => {
-      if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          path: 'orders.products',
-          populate: 'category'
-        });
-
-        return user.orders.id(_id);
       }
 
       throw new AuthenticationError('Not logged in');
@@ -113,18 +98,6 @@ const resolvers = {
     createAnimal: async (parent, { name, coord, Lat, Lon, description, img, funFact }) => {
       // Create and return the new Animal object
       return await Animal.create({ name, coord, Lat, Lon, description, img, funFact });
-    },
-    addOrder: async (parent, { products }, context) => {
-      console.log(context);
-      if (context.user) {
-        const order = new Order({ products });
-
-        await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
-
-        return order;
-      }
-
-      throw new AuthenticationError('Not logged in');
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });

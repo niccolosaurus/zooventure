@@ -1,10 +1,10 @@
 import React, { useState } from "react"
-import AnimalItem from "../components/AnimalItem"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Tabs, Tab, Card, Row, Col, Container, Button } from 'react-bootstrap'
 import UserInfo from "../components/UserInfo"
 import MyZooMap from "../components/MyZooMap"
 import { QUERY_USER, QUERY_USERS } from "../utils/queries";
+import { CREATE_ANIMAL } from "../utils/mutations";
 import { useQuery } from '@apollo/client'
 import background from "../paws.jpeg";
 
@@ -18,6 +18,7 @@ function Profile() {
         img: '',
         funFact: ''
     });
+    // const [state, dispatch] = 
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -27,16 +28,12 @@ function Profile() {
             [name]: value,
         });
     };
-
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
-        console.log(formState);
-        try {
-
     
-        } catch (e) {
-          console.error(e);
-        }
+    const handleFormSubmit = async (event) => {
+        // dispatch({
+        //     type: CREATE_ANIMAL,
+        //     product: { ...item, purchaseQuantity: 1 }
+        //   });
     
         // clear form values
         setFormState({
