@@ -24,7 +24,7 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 planOpen: true,
-                plan: [...state.plan, action.aninal]
+                plan: [...state.plan, action.animal]
             }
         case REMOVE_ANIMAL:
             let newState = state.plan.filter((animal) => {
