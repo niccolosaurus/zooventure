@@ -8,29 +8,24 @@ const divStyle = {
   padding: 15,
 };
 
-
 const AnimalWindow = ({ animal, onCloseClick }) => {
-  const position = {
-    lat: animal.Lat,
-    lng: animal.Lon,
-  };
-  return (
-    <InfoWindow position={position} onCloseClick={onCloseClick}>
- 
-      
-      {/* <div style={divStyle}>
-        <img src={animal.img} alt={animal.name}></img>
-        <h1>{animal.name}</h1> */}
-      {/*  */}
-       <AnimalItem
-        _id={animal._id}
-        img={animal.img}
-        name={animal.name}
-        description={animal.description}
-        funFact={animal.funFact}
-      /> 
-    </InfoWindow>
-  );
+  if (animal !== {}) {
+    const position = {
+      lat: animal.Lat || 32.735107,
+      lng: animal.Lon || -117.14988,
+    };
+    return (
+      <InfoWindow position={position} onCloseClick={onCloseClick}>
+        <AnimalItem
+          _id={animal._id}
+          img={animal.img}
+          name={animal.name}
+          description={animal.description}
+          funFact={animal.funFact}
+        />
+      </InfoWindow>
+    );
+  }
 };
 
 export default AnimalWindow;
