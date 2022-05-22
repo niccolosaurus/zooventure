@@ -64,7 +64,7 @@ const Login = (props) => {
                     <h4 style={{ textAlign: 'center', marginTop: "10px", marginBottom: '10px', borderRadius: "10px", color: "white" }}>Welcome back! Login to make a plan or <a href='/signup'>signup</a></h4>
                   </div>
                   <div style={{ margin: '10px' }} className='mb-3 from-group'>
-                    <label style={{ color: 'white' }} for="email" class="form-label"><strong>Email address</strong></label>
+                    <label style={{ color: 'white' }}  className="form-label"><strong>Email address</strong></label>
                     <input
                       className="form-control"
                       placeholder="Your email"
@@ -75,7 +75,7 @@ const Login = (props) => {
                     />
                   </div>
                   <div style={{ margin: '10px' }} className='mb-3 form-group'>
-                    <label style={{ color: 'white' }} for="password" class="form-label"><strong>Password</strong></label>
+                    <label style={{ color: 'white' }}  className="form-label"><strong>Password</strong></label>
                     <input
                       className="form-control"
                       placeholder="******"
