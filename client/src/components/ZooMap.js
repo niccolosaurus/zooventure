@@ -4,9 +4,8 @@ import { Marker } from "@react-google-maps/api";
 
 import AnimalWindow from "./AnimalWindow";
 
-import { useQuery } from '@apollo/client';
-import { QUERY_ANIMALS } from '../utils/queries';
-
+import { useQuery } from "@apollo/client";
+import { QUERY_ANIMALS } from "../utils/queries";
 
 const containerStyle = {
   width: "90%",
@@ -19,7 +18,6 @@ const center = {
 };
 
 function ZooMap() {
-
   const { loading, data, error } = useQuery(QUERY_ANIMALS);
 
   const { isLoaded } = useJsApiLoader({
@@ -30,21 +28,11 @@ function ZooMap() {
   const [map, setMap] = useState(null);
 
   const [showAnimalWindow, setShowAnimalWindow] = useState(false);
-  const [singleAnimal, setSingleAnimal] = useState({
-    _id: 1,
-    name: "Flamingos",
-    coord: "32.735107, -117.149889",
-    Lat: 32.735107,
-    Lon: -117.149889,
-    description:
-      "With their pink and crimson plumage, long legs and necks, and strongly hooked bills, flamingos cannot be mistaken for any other type of bird. The flamingo’s pink or reddish color comes from the rich sources of carotenoid pigments (like the pigments of carrots) in the algae and small crustaceans the birds eat.",
-    img: "https://animals.sandiegozoo.org/sites/default/files/2017-07/animals-flamingo-feeding.jpg",
-    funFact:
-      "These hardy little penguins can hold their breath over 2 minutes and dive over 400 feet deep!",
-  });
+  const [singleAnimal, setSingleAnimal] = useState({});
 
   const closeAnimalWindow = () => {
     setShowAnimalWindow(false);
+    setSingleAnimal({});
   };
 
   const onLoad = React.useCallback(function callback(map) {
@@ -61,46 +49,55 @@ function ZooMap() {
     setShowAnimalWindow(true);
   };
 
-  if(loading) return "Loading..";
-  if(error) return <pre>{error.message}</pre>
+  if (loading) return "Loading..";
+  if (error) return <pre>{error.message}</pre>;
 
-  return isLoaded ? (
-    <GoogleMap
-      id="gmap-map"
-      mapContainerStyle={containerStyle}
-      center={center}
-      onLoad={onLoad}
-      onUnmount={onUnmount}
-      zoom={17}
-      options={{ mapId: "830da1546c37eea8" }}
-    >
-      {/* Child components, such as markers, info windows, etc. */}
-      <>
-        {data.animals.map((animal) => {
-          const position = {
-            lng: animal.Lon,
-            lat: animal.Lat,
-          };          
-          return (
-            <Marker
-              key={Math.random()}
-              position={position}
-              onClick={() => getAnimalData(animal)}
-              icon={process.env.PUBLIC_URL + '/assets/images/paw_icon.png'}
-            />
-          );
-        })}
-        {showAnimalWindow && (
-          <AnimalWindow
-            animal={singleAnimal}
-            onCloseClick={closeAnimalWindow}
-          />
-        )}
-      </>
-    </GoogleMap>
-  ) : (
-    <></>
-  );
+  console.log(data);
+  console.log({ showAnimalWindow });
+
+  if (data && isLoaded) {
+    return (
+      <GoogleMap
+        id="gmap-map"
+        mapContainerStyle={containerStyle}
+        center={center}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+        zoom={17}
+        options={{ mapId: "830da1546c37eea8" }}
+      >
+        {/* Child components, such as markers, info windows, etc. */}
+        <>
+          {data &&
+            data?.animals?.map((animal) => {
+              const position = {
+                lng: animal.Lon,
+                lat: animal.Lat,
+              };
+              console.log({ animal });
+              return (
+                <Marker
+                  // key={animal._id}
+                  key={Math.random()}
+                  position={position}
+                  onClick={() => getAnimalData(animal)}
+                  icon={process.env.PUBLIC_URL + "/assets/images/paw_icon.png"}
+                >
+                  {showAnimalWindow && singleAnimal.name === animal.name && (
+                    <AnimalWindow
+                      animal={singleAnimal}
+                      onCloseClick={closeAnimalWindow}
+                    />
+                  )}
+                </Marker>
+              );
+            })}
+
+          {/*  */}
+        </>
+      </GoogleMap>
+    );
+  }
 }
 
 export default ZooMap;
