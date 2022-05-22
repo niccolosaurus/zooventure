@@ -1,3 +1,20 @@
+body {
+    background-color: #ECB390;
+}
+
+.card-style {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
 .card-body {
     text-align: center;
+    background-color: #F5EEDC;
+}
+
+.button {
+    background-color: #C0D8C0;
+    border-color: #C0D8C0;
 }
