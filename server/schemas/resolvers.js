@@ -14,22 +14,22 @@ const resolvers = {
     user: async (parent, args, context) => {
       console.log(context, "more context")
 
-      if(context.user) {
-      const user = await User.findById(context.user._id).populate({
-        path: 'plans.animals',
-        populate: 'name'
-      });
-      return user
-    } throw new AuthenticationError("err")
-      
-      
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate({
+          path: 'plans.animals',
+          populate: 'name'
+        });
+        return user
+      } throw new AuthenticationError("err")
+
+
     },
     users: async () => {
       return await User.find().populate({
         path: 'plans.animals',
         populate: 'name'
       });
-      
+
     },
     plans: async () => {
       return await Plan.find().populate('animal');
@@ -79,6 +79,19 @@ const resolvers = {
         const plan = args.animals
 
         return await User.findByIdAndUpdate(context.user._id, { $push: { 'plans.0.animals': plan } });
+
+        // return plan;
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+    removePlan: async (parent, args, context) => {
+      console.log(context, 'verify context');
+      console.log('animals', args.animals)
+      if (context.user) {
+        const plan = args.animals
+
+        return await User.findByIdAndUpdate(context.user._id, { $pull: { 'plans.0.animals': plan } });
 
         // return plan;
       }

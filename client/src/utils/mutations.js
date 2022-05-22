@@ -28,6 +28,23 @@ export const ADD_PLAN = gql`
   }
 `;
 
+export const REMOVE_PLAN = gql`
+  mutation removePlan($animals: [ID] ){
+    removePlan(animals: $animals) {
+      animals {
+        _id
+        name
+        coord
+        Lat
+        Lon
+        description
+        img
+        funFact
+      }
+    }
+  }
+`;
+
 export const ADD_USER = gql`
   mutation addUser(
     $username: String!
@@ -44,5 +61,27 @@ export const ADD_USER = gql`
         _id
       }
     }
+  }
+`;
+
+export const CREATE_ANIMAL = gql`
+  mutation createAnimal(
+    $name: String!,
+    $coord: String,
+    $Lat: Float,
+    $Lon: Float,
+    $description: String,
+    $img: String,
+    $funFact: String 
+  ) {
+    createAnimal(
+      name: $name
+      coord: $coord
+      Lat: $Lat
+      Lon: $Lon
+      description: $description
+      img: $img
+      funFact: $funFact
+    )
   }
 `;
