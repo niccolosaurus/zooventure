@@ -28,6 +28,7 @@ const AnimalWindow = ({ animal, onCloseClick }) => {
         name={animal.name}
         description={animal.description}
         funFact={animal.funFact}
+        animal={animal}
       /> 
     </InfoWindow>
   );

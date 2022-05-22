@@ -12,7 +12,7 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_PLAN = gql`
-  mutation addPlan($animals: [ID]) {
+  mutation addPlan($animals: [ID] ){
     addPlan(animals: $animals) {
       animals {
         _id

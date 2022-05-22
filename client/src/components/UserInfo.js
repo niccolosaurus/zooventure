@@ -8,9 +8,9 @@ import { useQuery } from '@apollo/client'
 import background from "../paws.jpeg";
 
 function UserInfo() {
-    const { data } = useQuery(QUERY_USER);
+    const { data, error } = useQuery(QUERY_USER);
     let user;
-
+console.log({error})
     if (data) {
         console.log('user', data.user)
         user = data.user;

@@ -72,14 +72,15 @@ const resolvers = {
 
       return { token, user };
     },
-    addPlan: async (parent, { animals }, context) => {
-      console.log(context);
+    addPlan: async (parent, args, context) => {
+      console.log(context, 'verify context');
+      console.log('animals', args.animals)
       if (context.user) {
-        const plan = new Plan({ animals });
+        const plan = args.animals
 
-        await User.findByIdAndUpdate(context.user._id, { $push: { plan: plan } });
+        return await User.findByIdAndUpdate(context.user._id, { $push: { 'plans.0.animals': plan } });
 
-        return plan;
+        // return plan;
       }
 
       throw new AuthenticationError('Not logged in');
