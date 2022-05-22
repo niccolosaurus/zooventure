@@ -1,17 +1,11 @@
 import { useState } from "react";
 import DayPlanner from "../components/DayPlanner";
-import ZooMap from "../components/ZooMap";
+import HomePage from "../components/HomePage";
 
 const Home = () => {
-
   return (
-    <div className="card bg-white card-rounded ">
-      <div className="image-container">
-        {/* <img src={`${process.env.PUBLIC_URL}/assets/images/ZooMap.jpg`} alt="Map of the Zoo"></img> */}
-        <ZooMap />
-      </div>
-      <div className="animal_list"></div>
-   
+    <div>
+      <HomePage />
     </div>
   );
 };

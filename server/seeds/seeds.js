@@ -1,9 +1,9 @@
 const db = require('../config/connection');
-const { Animal, User } = require('../models')
+const { Animal, User, Product } = require('../models')
 
 const userData = require('./userData.json')
 const animalData = require('./animalCoord.json');
-
+const productData = require('./productData.json')
 
 db.once('open', async () => {
   
@@ -54,8 +54,14 @@ db.once('open', async () => {
   ]
   ))
 
-
   console.log('User collection seeded!');
+
+
+    
+  await Product.deleteMany({});
+  const product = await Product.insertMany(productData);
+  
+  console.log('Product collection seeded!');
 
 
   process.exit(1);
