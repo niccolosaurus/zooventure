@@ -37,7 +37,7 @@ const Signup = () => {
 
       Auth.login(data.addProfile.token);
     } catch (e) {
-      console.error(e);
+      console.log(e);
     }
   };
 
