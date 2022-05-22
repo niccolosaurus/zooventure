@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Row, Col, Accordion, Tab, Tabs, Button } from "react-bootstrap";
+import { Routes, Route, Link } from "react-router-dom";
 
 function HomePage() {
   return (
@@ -22,7 +23,9 @@ function HomePage() {
           <Card.Body>
             <Card.Title>Zooventure Map</Card.Title>
             <Card.Text>View our zoo map.</Card.Text>
-            <Button variant="primary">Click for Map</Button>
+            <Link to="/map">
+              <Button variant="primary">Click for Map</Button>
+            </Link>
           </Card.Body>
         </Card>
       </div>
