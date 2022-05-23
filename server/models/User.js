@@ -26,8 +26,13 @@ const userSchema = new Schema({
     type: Boolean,
     required: false,
     default: false,
+
   },
-  plans: [Plan.schema]
+  plans: {
+    type: [Plan.schema],
+    default: () => ({}),
+
+  },
 });
 
 userSchema.pre('save', async function (next) {

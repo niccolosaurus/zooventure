@@ -2,13 +2,15 @@ const mongoose = require('mongoose');
 // const { Schema, model } = require('mongoose');
 const { Schema } = mongoose;
 
+
 const planSchema = new Schema({
+
   animals: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Animal'
+      ref: 'Animal',
     }
-  ]
+  ],
 });
 
 const Plan = mongoose.model('Plan', planSchema);
