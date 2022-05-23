@@ -46,6 +46,7 @@ const typeDefs = gql`
         updateUser(username: String, email: String, password: String): User
         createAnimal(name: String!, coord: String, Lat: Float, Lon: Float, description: String, img: String, funFact: String ): Animal
         updateAnimal(_id: ID!, name: String, coord: String, Lat: Float, Lon: Float, description: String, img: String, funFact: String): Animal
+        deleteAnimal(animals: [ID]): Animal
         login(email: String!, password: String!): Auth
     }
 `;
