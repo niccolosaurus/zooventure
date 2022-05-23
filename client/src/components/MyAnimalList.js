@@ -34,6 +34,7 @@ const MyAnimalList = (props) => {
   }
 
   console.log({data})
+  console.log(_id)
 
   return (
     
@@ -77,7 +78,7 @@ const MyAnimalList = (props) => {
         </Card.Body>
          
          <Card.Footer style={{ padding: "0px",margin: "0px" , textAlign: "center" }}>
-           <Button style={{borderRadius: "0px"  ,height: "100%", width: "100%"}} href='' type='click' size="lg" variant="warning" id="add-plan" onClick={() => removePlan({ variables: { animals: revisedAnimal._id } })}>Remove Animal from plan</Button>
+           <Button style={{borderRadius: "0px"  ,height: "100%", width: "100%"}} href='' type='click' size="lg" variant="warning" id="add-plan" onClick={() => removePlan({ variables: { animals: _id } })}>Remove Animal from plan</Button>
          </Card.Footer> 
       </Card>
   

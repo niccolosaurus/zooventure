@@ -1,7 +1,7 @@
 import React from "react";
 import AccordionHeader from "react-bootstrap/esm/AccordionHeader";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, Row, Col, Accordion, Tab, Tabs, Button } from 'react-bootstrap';
+import { Card, Row, Col, Accordion, Tab, Tabs, Button, Alert } from 'react-bootstrap';
 import "./Accordion.css";
 import { ADD_PLAN} from "../utils/mutations"
 import {useMutation, useQuery} from '@apollo/client'
@@ -22,6 +22,9 @@ function AnimalItem(props) {
 
   const [addPlan, {data, error}] = useMutation(ADD_PLAN);
   
+  console.log(error)
+
+
   const revisedAnimal = {
     _id: animal._id,
     name: animal.name,
@@ -38,7 +41,7 @@ function AnimalItem(props) {
 // console.log({error})
 
 // const { data } = await addOrder({ variables: { animals } });
-console.log({data})
+// console.log({data})
 
   return (
     
@@ -83,6 +86,8 @@ console.log({data})
         </Card.Body>
         <Card.Footer style={{ textAlign: "center" }}>
           <Button size="lg" variant="warning" id="add-plan" onClick={() => addPlan({ variables: { animals: revisedAnimal._id } })}>Add Animal to Plan</Button>
+          {/* {!error && <Alert variant="success"> Animal added </Alert>} */}
+          {error && <Alert variant="danger"> 'Animal already added to plan' </Alert>}
         </Card.Footer>
       </Card>
 

@@ -12,7 +12,7 @@ const resolvers = {
       return await Animal.findById(_id);
     },
     user: async (parent, args, context) => {
-      console.log(context, "more context")
+      // console.log(context, "more context")
 
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
@@ -58,10 +58,22 @@ const resolvers = {
       return { token, user };
     },
     addPlan: async (parent, args, context) => {
-      console.log(context, 'verify context');
-      console.log('animals', args.animals)
+      // console.log(context, 'verify context');
+      // console.log('animals', args.animals)
       if (context.user) {
         const plan = args.animals
+
+        const user = await User.findById(context.user._id).populate({
+          path: 'plans.animals',
+          populate: 'name'
+        });
+
+        user.plans[0].animals.map(animal => {
+          // return animal._id.toString() !== plan
+          if (animal._id.toString() === plan[0]) {
+            throw new Error('Animal already added to plan');
+          }
+        })
 
         return await User.findByIdAndUpdate(context.user._id, { $push: { 'plans.0.animals': plan } });
 
@@ -71,13 +83,50 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
     removePlan: async (parent, args, context) => {
-      console.log(context, 'verify context');
+      // console.log(context, 'verify context');
       console.log('animals', args.animals)
       if (context.user) {
-        const plan = args.animals
+        const plan = args.animals[0]
 
-        return await User.findByIdAndUpdate(context.user._id, { $pull: { 'plans.0.animals': plan } });
+        const user = await User.findById(context.user._id).populate({
+          path: 'plans.animals',
+          populate: 'name'
+        });
 
+        // console.log(user.plans[0].animals[0]._id)
+        // console.log(user.plans[0].animals[0]._id === 'new ObjectId("6289d5b30a1d2a6d604be214")')
+        // console.log(typeof user.plans[0].animals[0]._id)
+        // console.log(user.plans[0].animals[0]._id.toString())
+        
+        // let stringifiedId = user.plans[0].animals[0]._id.toString()
+        // console.log(stringifiedId === '6289d5b30a1d2a6d604be214')
+        
+        console.log(plan)
+
+        let newPlanAnimalArr = user.plans[0].animals.filter(animal => {
+          return animal._id.toString() !== plan
+        })
+
+        console.log(newPlanAnimalArr)
+
+
+        // return await User.findByIdAndUpdate(context.user._id, { $pull: { 'plans.0.animals': plan } }, { new: true });
+
+        // return await User.find(context.user._id, { $pull: { 'plans.0.animals': {_id: plan} } }, { new: true });
+
+        // return await User.findByIdAndUpdate(context.user._id, { $pull: { 'plans.0.animals.0._id': plan } }, { new: true });
+
+        // return await User.findByIdAndUpdate(context.user._id, { $pull: { 'plans.0.animals': { $in: [ plan ] }} });
+
+        // Plan B
+        return await User.findByIdAndUpdate(context.user._id, { $set: { 'plans.0.animals': newPlanAnimalArr }});
+
+        // return await User.findByIdAndUpdate(context.user._id, { $pull: { 'plans.0.animals': [ plan ] } }, { new: true });
+
+
+
+
+        
         // return plan;
       }
 
@@ -98,6 +147,19 @@ const resolvers = {
     createAnimal: async (parent, { name, coord, Lat, Lon, description, img, funFact }) => {
       // Create and return the new Animal object
       return await Animal.create({ name, coord, Lat, Lon, description, img, funFact });
+    },
+
+    addOrder: async (parent, { products }, context) => {
+      // console.log(context);
+      if (context.user) {
+        const order = new Order({ products });
+
+        await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+
+        return order;
+      }
+
+      throw new AuthenticationError('Not logged in');
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
