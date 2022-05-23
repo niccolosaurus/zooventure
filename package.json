@@ -1,9 +1,12 @@
 {
-  "name": "zootopia",
+  "name": "zooventure",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://niccolosaurus.github.io/zooventure",
   "main": "server/server.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "node server --ignore client",
     "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
