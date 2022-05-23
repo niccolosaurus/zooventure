@@ -13,7 +13,7 @@ import {
 } from "react-bootstrap";
 import "./Accordion.css";
 
-import { ADD_PLAN, REMOVE_ANIMAL } from "../utils/mutations"
+import { ADD_PLAN, DELETE_ANIMAL } from "../utils/mutations"
 import { QUERY_USER, QUERY_USERS } from "../utils/queries";
 import {useMutation, useQuery} from '@apollo/client'
 
@@ -21,11 +21,9 @@ function AnimalItem(props) {
   //Define Variables
   const { _id, description, name, funFact, img, animal } = props;
 
-  } = props
-
   const { data, loading, e } = useQuery(QUERY_USER);
   const [addPlan, {planData, error}] = useMutation(ADD_PLAN);
-  const [removeAnimal] = useMutation(REMOVE_ANIMAL);
+  const [removeAnimal] = useMutation(DELETE_ANIMAL);
 
 
   console.log(error);
