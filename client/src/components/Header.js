@@ -12,16 +12,16 @@ const Header = () => {
 
   return (
     <Navbar
-      style={{ width: "100%", backgroundColor: "rgba(52, 52, 52, 0.8)" }}
-      expand="bg"
+      style={{ width: "100%", backgroundColor: "rgba(52, 52, 52, 0.95)" }}
+      expand="lg"
     >
       <Container style={{ width: "100%" }}>
         <Navbar.Brand style={{ color: "white" }} href="/">
           <strong>Zooventure</strong>
         </Navbar.Brand>
 
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             {Auth.loggedIn() ? (
               <>
@@ -67,10 +67,13 @@ const Header = () => {
             >
               Home
             </Nav.Link>
-                      <Nav.Link style={{color: "white"}} className="nav-link active" href="/map">
-            Map
-          </Nav.Link>
-
+            <Nav.Link
+              style={{ color: "white" }}
+              className="nav-link active"
+              href="/map"
+            >
+              Map
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
