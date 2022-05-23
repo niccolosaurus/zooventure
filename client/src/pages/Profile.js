@@ -72,9 +72,10 @@ function Profile() {
                         <Card style={{
                             border: " 10px solid #563e01", 
                             backgroundColor: "#ebb905",
-                            width: "50%",
-                            marginBottom: "10px"
+                            maxWidth: '400px',
+                            marginBottom: "10px",
                         }}>
+                             
                             <div style={{ textAlign: "center", marginTop: "5px"}}>
                             <h2>New Animal</h2>
                             <p>Please fill out the form below</p>
@@ -90,7 +91,7 @@ function Profile() {
                                 }}
                             >
                                 <div className="mb-3">
-                                <label for="name" class="form-label">Animal Name</label><br></br>
+                                <label className="form-label">Animal Name</label><br></br>
                                 <input
                                     value={formState.name}
                                     placeholder="Animal name"
@@ -99,7 +100,7 @@ function Profile() {
                                 />
                                 </div>
                                 <div className="mb-3">
-                                <label for="Lat" class="form-label">Latitude</label><br></br>
+                                <label  className="form-label">Latitude</label><br></br>
                                 <input
                                     value={formState.Lat}
                                     placeholder="Latitude"
@@ -108,7 +109,7 @@ function Profile() {
                                 />
                                 </div>
                                 <div className="mb-3">
-                                <label for="Lon" class="form-label">Longitude</label><br></br>
+                                <label  className="form-label">Longitude</label><br></br>
                                 <input
                                     value={formState.Lon}
                                     placeholder="Longitude"
@@ -117,7 +118,7 @@ function Profile() {
                                  />
                                 </div>
                                 <div className="mb-3">
-                                <label for="description" class="form-label">Description</label><br></br>
+                                <label  className="form-label">Description</label><br></br>
                                 <input
                                     value={formState.description}
                                     placeholder="Animal description"
@@ -126,7 +127,7 @@ function Profile() {
                                 />
                                 </div>
                                 <div className="mb-3">
-                                <label for="img" class="form-label">Image</label><br></br>
+                                <label  className="form-label">Image</label><br></br>
                                 <input
                                     value={formState.img}
                                     placeholder="Image URL"
@@ -135,7 +136,7 @@ function Profile() {
                                 />
                                 </div>
                                 <div className="mb-3">
-                                <label for="funFact" class="form-label">Fun Fact</label><br></br>
+                                <label  className="form-label">Fun Fact</label><br></br>
                                 <input
                                     value={formState.funFact}
                                     placeholder="Fun fact"

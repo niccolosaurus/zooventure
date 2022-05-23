@@ -26,10 +26,12 @@ const userSchema = new Schema({
     type: Boolean,
     required: false,
     default: false,
+
   },
   plans: {
     type: [Plan.schema],
     default: () => ({}),
+
   },
 });
 
