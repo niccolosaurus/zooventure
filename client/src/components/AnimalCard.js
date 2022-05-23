@@ -3,17 +3,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Row, Col, Accordion, Tab, Tabs, Button } from "react-bootstrap";
 import logo from "../logo.svg";
 import background from "../paws.jpeg";
-import animalCoord from "../data/animalCoord.json";
 import AccordionHeader from "react-bootstrap/esm/AccordionHeader";
 import "bootstrap/dist/css/bootstrap.css";
 import "./Accordion.css";
-import { ADD_ANIMAL } from "../utils/actions";
-import { useStoreContext } from "../utils/GlobalState";
 import { QUERY_ANIMALS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
-import Header from "./Header";
-
-// import { STATES } from "mongoose";
 
 function AnimalCard() {
   const { data, loading, error } = useQuery(QUERY_ANIMALS);
@@ -32,7 +26,7 @@ function AnimalCard() {
         alignContent: "center",
       }}
     >
-      <Header />
+   
 
       {data.animals.map((animal) => (
         <Card
@@ -41,7 +35,7 @@ function AnimalCard() {
           style={{ backgroundColor: "#b58404", width: "20rem", margin: "20px" }}
         >
           <Card.Img style={{ alignContent: "left" }} src={animal.img} />
-          <Card.Body>
+          <Card.Body style={{backgroundColor: "#fcdb03"}}>
             <Card.Title>{animal.name}</Card.Title>
 
             <Col>

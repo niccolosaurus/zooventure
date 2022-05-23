@@ -74,6 +74,13 @@ const Header = () => {
             >
               Map
             </Nav.Link>
+            <Nav.Link
+              style={{ color: "white" }}
+              className="nav-link active"
+              href="/animals"
+            >
+              Current Animals
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
