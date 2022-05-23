@@ -8,8 +8,8 @@ import { useQuery } from "@apollo/client";
 import { QUERY_ANIMALS } from "../utils/queries";
 
 const containerStyle = {
-  width: "90%",
-  height: "70vh",
+  width: "100%",
+  height: "100vh",
 };
 //32.736025, -117.151387
 const center = {
