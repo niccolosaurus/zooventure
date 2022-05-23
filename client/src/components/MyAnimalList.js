@@ -40,7 +40,7 @@ const MyAnimalList = (props) => {
     
     <Card key={_id} variant="success"  style={{ border: " 10px solid #563e01", backgroundColor: "#ebb905", width: "300px", margin: "20px" }}>
         <img style={{ border: " 10px solid #edac02", alignContent: "left" }} src={img} />
-        <Card.Body>
+        <Card.Body style={{backgroundColor: '#fcdb03'}}>
           <Card.Title style={{ fontSize: "25px", textDecoration: "underline", textAlign: "center" }}>
 
             {name}
