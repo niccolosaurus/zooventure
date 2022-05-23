@@ -9,7 +9,7 @@ import { QUERY_ANIMALS } from "../utils/queries";
 
 const containerStyle = {
   width: "100%",
-  height: "100vh",
+  height: "92.8vh",
 };
 //32.736025, -117.151387
 const center = {
