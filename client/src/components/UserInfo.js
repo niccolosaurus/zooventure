@@ -26,21 +26,20 @@ console.log({error})
          
             {user ? (
                 <>
-                    <Card style={{borderRadius: "0px", backgroundColor: "#CA965C", width: "100%" }}>
+                    <Card style={{backgroundColor: "#CA965C" }}>
                         {/* <Card.Header style={{borderBottom: "3px solid black" ,width: "100%" ,color: "black", fontSize: "60px" ,textAlign: "center", fontWeight: "60px" }}>
                           {user.username}
                         </Card.Header> */}
-                        <Card.Body>
-                        
-                            <div  style={{marginBottom: "20px", display: "flex", flexWrap: "wrap", justifyContent: "center", alignContent: 'center'}}>
-                            
-                            </div>
-                        <div style={{backgroundColor: "#EEC373", display: "flex", flexWrap: "wrap", justifyContent: "center", alignContent: 'center', width: '100%'}}>
-                            <Card.Header style={{borderRadius: "0px" , width: "100%", color: "black", fontWeight: "10px", fontSize: "20px" ,textAlign: "left"}}>Animals left to see</Card.Header>
+                     
+                     <Card.Header style={{ fontStyle:"arial", borderRadius: "0px" , width: "100%", color: "black", fontWeight: "700", fontSize: "30px" ,textAlign: "left"}}>Animals left to see</Card.Header>
+                       
+                            <Card.Body style={{ backgroundColor: "#EEC373",  display: "flex", flexWrap: "wrap", justifyContent: "center", alignContent: 'center'}}>
+                        {/* <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignContent: 'center', width: '100%'}}> */}
+                           
 
                             
                               
-                                    <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center", alignContent: 'center',}} >
+                                    {/* <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center", alignContent: 'center',}} > */}
                                         {user.plans[0].animals.map((animal) => (
                                             <MyAnimalList
                                                key={animal._id}
@@ -53,10 +52,11 @@ console.log({error})
                                             />
 
                                         ))}
-                                    </div>
+                                           
+                                    {/* </div> */}
                                 
-                            </div>
-                        </Card.Body>
+                            {/* </div> */}
+                            </Card.Body>
                     </Card>
                 </>
             ) : <div> hello world </div>}
