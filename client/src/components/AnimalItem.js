@@ -3,7 +3,8 @@ import AccordionHeader from "react-bootstrap/esm/AccordionHeader";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Row, Col, Accordion, Tab, Tabs, Button, Alert } from 'react-bootstrap';
 import "./Accordion.css";
-import { ADD_PLAN} from "../utils/mutations"
+import { ADD_PLAN, REMOVE_ANIMAL } from "../utils/mutations"
+import { QUERY_USER, QUERY_USERS } from "../utils/queries";
 import {useMutation, useQuery} from '@apollo/client'
 
 
@@ -20,9 +21,9 @@ function AnimalItem(props) {
 
   } = props
 
-  const [addPlan, {data, error}] = useMutation(ADD_PLAN);
-  
-  console.log(error)
+  const { data, loading, e } = useQuery(QUERY_USER);
+  const [addPlan, {planData, error}] = useMutation(ADD_PLAN);
+  const [removeAnimal] = useMutation(REMOVE_ANIMAL);
 
 
   const revisedAnimal = {
@@ -42,7 +43,8 @@ function AnimalItem(props) {
 
 // const { data } = await addOrder({ variables: { animals } });
 // console.log({data})
-
+if(loading) return "Loading...";
+if (error) return <pre>{error.message}</pre>;
   return (
     
     
@@ -85,7 +87,12 @@ function AnimalItem(props) {
 
         </Card.Body>
         <Card.Footer style={{ textAlign: "center" }}>
-          <Button size="lg" variant="warning" id="add-plan" onClick={() => addPlan({ variables: { animals: revisedAnimal._id } })}>Add Animal to Plan</Button>
+          <Button size="lg" variant="warning" id="add-plan" onClick={() => addPlan({ variables: { animals: revisedAnimal._id } })}>Add Animal to Plan</Button> 
+          {data.user.admin ? (
+            <Button size="lg" style={{backgroundColor: "red", marginTop: "10px"}} variant="warning" id="add-plan" onClick={() => removeAnimal({ variables: { animals: revisedAnimal._id } })}>Remove Animal</Button>
+           ):(
+            <></>
+          )} 
           {/* {!error && <Alert variant="success"> Animal added </Alert>} */}
           {error && <Alert variant="danger"> 'Animal already added to plan' </Alert>}
         </Card.Footer>
