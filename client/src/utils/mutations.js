@@ -82,6 +82,8 @@ export const CREATE_ANIMAL = gql`
       description: $description
       img: $img
       funFact: $funFact
-    )
+    ) {
+      name
+    }
   }
 `;
