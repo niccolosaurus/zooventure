@@ -27,19 +27,12 @@ function AnimalItem(props) {
     _id: animal._id,
     name: animal.name,
     coord: animal.coord,
-    // Lat: parseFloat(animal.Lat),
-    // Lon: parseFloat(animal.Lon),
     Lat: animal.Lat,
     Lon: animal.Lon,
     description: animal.description,
     img: animal.img,
     funFact: animal.funFact,
   };
-
-  // console.log({error})
-
-  // const { data } = await addOrder({ variables: { animals } });
-  // console.log({data})
 
   return (
     <Card
@@ -76,7 +69,7 @@ function AnimalItem(props) {
             >
               <Accordion.Item
                 eventKey="0"
-                style={{ backgroundColor: "#b58404", color: "white" }}
+                style={{ backgroundColor: "#b58404" }}
               >
                 <Accordion.Header
                   variant="warning"
@@ -84,12 +77,10 @@ function AnimalItem(props) {
                 >
                   Description
                 </Accordion.Header>
-                <Accordion.Body>
-                  {description}
-                </Accordion.Body>
+                <Accordion.Body>{description}</Accordion.Body>
               </Accordion.Item>
               <Accordion.Item
-                style={{ backgroundColor: "#b58404", color: "white" }}
+                style={{ backgroundColor: "#b58404" }}
                 eventKey="1"
               >
                 <Accordion.Header style={{ backgroundColor: "#b58404" }}>
@@ -114,7 +105,6 @@ function AnimalItem(props) {
         >
           Add Animal to Plan
         </Button>
-        {/* {!error && <Alert variant="success"> Animal added </Alert>} */}
         {error && (
           <Alert variant="danger"> 'Animal already added to plan' </Alert>
         )}
