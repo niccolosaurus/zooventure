@@ -176,6 +176,11 @@ const resolvers = {
 
     //   throw new AuthenticationError('Not logged in');
     // },
+    deleteAnimal: async (parent, args, context) => {
+      animalToDelete = args.animal
+      await Animal.findOneAndDelete(animalToDelete);
+    },
+
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 

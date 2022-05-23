@@ -87,3 +87,20 @@ export const CREATE_ANIMAL = gql`
     }
   }
 `;
+
+export const DELETE_ANIMAL = gql`
+  mutation deleteAnimal($animals: [ID] ){
+    deleteAnimal(animals: $animals) {
+      animals {
+        _id
+        name
+        coord
+        Lat
+        Lon
+        description
+        img
+        funFact
+      }
+    }
+  }
+`;
