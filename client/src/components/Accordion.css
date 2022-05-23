@@ -2,3 +2,7 @@
     background-color: #b58404;
     color: black;
 }
+
+.accordion-body {
+    font-size: 20px;
+}
