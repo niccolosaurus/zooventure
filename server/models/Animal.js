@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema, model } = require('mongoose');
 
+
 const animalSchema = new Schema({
     name: {
         type: String,
@@ -19,21 +20,20 @@ const animalSchema = new Schema({
     },
     Lon: {
         type: Number,
-        required: true
+        required: true,
     },
     description: {
         type: String,
-        required: false
+        required: false,
     },
     img: {
         type: String,
-        required: false
+        required: false,
     },
     funFact: {
         type: String,
-        required: false
-    }
-
+        required: false,
+    },
 
 });
 

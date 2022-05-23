@@ -25,8 +25,12 @@ const userSchema = new Schema({
   admin: {
     type: Boolean,
     required: false,
+    default: false,
   },
-  plans: [Plan.schema]
+  plans: {
+    type: [Plan.schema],
+    default: () => ({}),
+  },
 });
 
 userSchema.pre('save', async function (next) {
