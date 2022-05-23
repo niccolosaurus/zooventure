@@ -41,6 +41,10 @@ const startApolloServer = async (typeDefs, resolvers) => {
     })
   })
   };
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+  });
   
 // Call the async function to start the server
   startApolloServer(typeDefs, resolvers);
