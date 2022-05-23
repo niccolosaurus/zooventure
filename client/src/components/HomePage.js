@@ -9,7 +9,7 @@ function HomePage() {
   return (
     <div className="card-style">
       <div style={{ margin: "20px" }}>
-        <Card style={{ width: "40rem", height: "40rem" }}>
+        <Card style={{ width: "100%", maxWidth: "800px" }}>
           <Card.Img
             variant="top"
             src={process.env.PUBLIC_URL + "/assets/images/highres-zoo-map.PNG"}
@@ -26,7 +26,6 @@ function HomePage() {
         </Card>
       </div>
 
-    
       {/* <div style={{ margin: "20px" }}>
         <Card style={{ width: "40rem", height: "40rem" }}>
           <Card.Img variant="top" src="holder.js/100px180" />
