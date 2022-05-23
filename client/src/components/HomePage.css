@@ -1,5 +1,8 @@
 body {
-    background-color: #ECB390;
+    /* background-color: #ECB390; */
+    background-image: url("../../public/assets/images/zoo-background.jpg");
+    background-size: cover; 
+     height:100vh;
 }
 
 .card-style {
@@ -15,6 +18,6 @@ body {
 }
 
 .button {
-    background-color: #C0D8C0;
+    background-color: #44b144;
     border-color: #C0D8C0;
 }
