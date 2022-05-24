@@ -13,18 +13,17 @@ import {
 } from "react-bootstrap";
 import "./Accordion.css";
 
-import { ADD_PLAN, DELETE_ANIMAL } from "../utils/mutations"
+import { ADD_PLAN, DELETE_ANIMAL } from "../utils/mutations";
 import { QUERY_USER, QUERY_USERS } from "../utils/queries";
-import {useMutation, useQuery} from '@apollo/client'
+import { useMutation, useQuery } from "@apollo/client";
 
 function AnimalItem(props) {
   //Define Variables
-  const { _id, description, name, funFact, img, animal } = props;
+  const { _id, description, name, funFact, img, animal } = props
 
   const { data, loading, e } = useQuery(QUERY_USER);
-  const [addPlan, {planData, error}] = useMutation(ADD_PLAN);
+  const [addPlan, { planData, error }] = useMutation(ADD_PLAN);
   const [removeAnimal] = useMutation(DELETE_ANIMAL);
-
 
   console.log(error);
 
@@ -40,7 +39,7 @@ function AnimalItem(props) {
     funFact: animal.funFact,
   };
 
-  if(loading) return "Loading...";
+  if (loading) return "Loading...";
   if (error) return <pre>{error.message}</pre>;
   return (
     <Card
@@ -114,10 +113,20 @@ function AnimalItem(props) {
           Add Animal to Plan
         </Button>
         {data.user.admin ? (
-          <Button size="lg" style={{backgroundColor: "red", marginTop: "10px"}} variant="warning" id="add-plan" onClick={() => removeAnimal({ variables: { animals: revisedAnimal._id } })}>Remove Animal</Button>
-         ):(
+          <Button
+            size="lg"
+            style={{ backgroundColor: "red", marginTop: "10px" }}
+            variant="warning"
+            id="add-plan"
+            onClick={() =>
+              removeAnimal({ variables: { animals: revisedAnimal._id } })
+            }
+          >
+            Remove Animal
+          </Button>
+        ) : (
           <></>
-        )} 
+        )}
         {error && (
           <Alert variant="danger"> 'Animal already added to plan' </Alert>
         )}
