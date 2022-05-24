@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Card, Row, Col, Accordion, Tab, Tabs, Button } from "react-bootstrap";
-import logo from "../logo.svg";
+import { Card, Col, Accordion, Button } from "react-bootstrap";
 import AccordionHeader from "react-bootstrap/esm/AccordionHeader";
 import "bootstrap/dist/css/bootstrap.css";
 import "./Accordion.css";
@@ -11,7 +10,7 @@ import { ADD_PLAN } from "../utils/mutations";
 
 function AnimalCard(props) {
   const { _id, description, name, funFact, img, animal } = props;
-  const { data, loading, err } = useQuery(QUERY_ANIMALS);
+  const { loading, err } = useQuery(QUERY_ANIMALS);
   const [addPlan] = useMutation(ADD_PLAN);
 
   const revisedAnimal = {
