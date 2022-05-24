@@ -16,7 +16,7 @@ export const QUERY_ANIMALS = gql`
   }
 `;
 
-
+// Query to retrieve all users.
 export const QUERY_USERS = gql`
   query getUsers {
     users {
@@ -41,6 +41,7 @@ export const QUERY_USERS = gql`
   }
 `;
 
+// Query to retrieve a single user.
 export const QUERY_USER = gql`
    {
     user {
