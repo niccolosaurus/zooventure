@@ -81,7 +81,10 @@ function ZooMap() {
                     // key={animal._id}
                     key={Math.random()}
                     position={position}
-                    onClick={() => getAnimalData(animal)}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      getAnimalData(animal);
+                    }}
                     icon={
                       process.env.PUBLIC_URL + "/assets/images/paw_icon.png"
                     }
