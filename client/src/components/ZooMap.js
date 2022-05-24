@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useGoogleMap } from "@react-google-maps/api";
+import { LoadScript, GoogleMap } from "@react-google-maps/api";
 import { Marker } from "@react-google-maps/api";
 
 import AnimalWindow from "./AnimalWindow";
@@ -19,14 +19,11 @@ const center = {
 
 function ZooMap() {
   const { loading, data, error } = useQuery(QUERY_ANIMALS);
-  const GoogleMap = useGoogleMap()
 
   // const { isLoaded } = useJsApiLoader({
   //   id: "google-map-script",
   //   googleMapsApiKey: "AIzaSyCuiil7MzZxeyMnEcO12VFm_VQdGaxYgDQ",
   // });
-
-
 
   const [map, setMap] = useState(null);
 
@@ -60,45 +57,49 @@ function ZooMap() {
 
   if (data) {
     return (
-      <GoogleMap
-        id="gmap-map"
-        mapContainerStyle={containerStyle}
-        center={center}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-        zoom={17}
-        options={{ mapId: "830da1546c37eea8" }}
-      >
-        {/* Child components, such as markers, info windows, etc. */}
-        <>
-          {data &&
-            data?.animals?.map((animal) => {
-              const position = {
-                lng: animal.Lon,
-                lat: animal.Lat,
-              };
-              console.log({ animal });
-              return (
-                <Marker
-                  // key={animal._id}
-                  key={Math.random()}
-                  position={position}
-                  onClick={() => getAnimalData(animal)}
-                  icon={process.env.PUBLIC_URL + "/assets/images/paw_icon.png"}
-                >
-                  {showAnimalWindow && singleAnimal.name === animal.name && (
-                    <AnimalWindow
-                      animal={singleAnimal}
-                      onCloseClick={closeAnimalWindow}
-                    />
-                  )}
-                </Marker>
-              );
-            })}
+      <LoadScript googleMapsApiKey="AIzaSyCuiil7MzZxeyMnEcO12VFm_VQdGaxYgDQ">
+        <GoogleMap
+          id="gmap-map"
+          mapContainerStyle={containerStyle}
+          center={center}
+          onLoad={onLoad}
+          onUnmount={onUnmount}
+          zoom={17}
+          options={{ mapId: "830da1546c37eea8" }}
+        >
+          {/* Child components, such as markers, info windows, etc. */}
+          <>
+            {data &&
+              data?.animals?.map((animal) => {
+                const position = {
+                  lng: animal.Lon,
+                  lat: animal.Lat,
+                };
+                console.log({ animal });
+                return (
+                  <Marker
+                    // key={animal._id}
+                    key={Math.random()}
+                    position={position}
+                    onClick={() => getAnimalData(animal)}
+                    icon={
+                      process.env.PUBLIC_URL + "/assets/images/paw_icon.png"
+                    }
+                  >
+                    {showAnimalWindow && singleAnimal.name === animal.name && (
+                      <AnimalWindow
+                        animal={singleAnimal}
+                        onCloseClick={closeAnimalWindow}
+                      />
+                    )}
+                  </Marker>
+                );
+              })}
 
-          {/*  */}
-        </>
-      </GoogleMap>
+            {/*  */}
+          </>
+        </GoogleMap>
+      </LoadScript>
     );
   }
 }
