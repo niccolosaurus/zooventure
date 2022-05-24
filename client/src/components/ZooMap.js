@@ -20,10 +20,10 @@ const center = {
 function ZooMap() {
   const { loading, data, error } = useQuery(QUERY_ANIMALS);
 
-  const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
-    googleMapsApiKey: "AIzaSyCuiil7MzZxeyMnEcO12VFm_VQdGaxYgDQ",
-  });
+  // const { isLoaded } = useJsApiLoader({
+  //   id: "google-map-script",
+  //   googleMapsApiKey: "AIzaSyCuiil7MzZxeyMnEcO12VFm_VQdGaxYgDQ",
+  // });
 
   const [map, setMap] = useState(null);
 
