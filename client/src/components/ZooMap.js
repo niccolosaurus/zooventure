@@ -82,6 +82,7 @@ function ZooMap() {
                     key={Math.random()}
                     position={position}
                     onClick={(event) => {
+                      console.log(event);
                       event.preventDefault();
                       getAnimalData(animal);
                     }}
