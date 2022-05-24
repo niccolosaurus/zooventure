@@ -22,7 +22,7 @@ function ZooMap() {
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: process.env.REACT_APP_API_KEY,
+    googleMapsApiKey: "AIzaSyCuiil7MzZxeyMnEcO12VFm_VQdGaxYgDQ",
   });
 
   const [map, setMap] = useState(null);
