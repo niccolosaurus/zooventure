@@ -52,8 +52,6 @@ function MyZooMap() {
   if (loading) return "Loading..";
   if (error) return <pre>{error.message}</pre>;
 
-  
-
   if (data && isLoaded) {
     return (
       <GoogleMap
@@ -73,7 +71,7 @@ function MyZooMap() {
                 lng: animal.Lon,
                 lat: animal.Lat,
               };
-             
+
               return (
                 <Marker
                   // key={animal._id}
