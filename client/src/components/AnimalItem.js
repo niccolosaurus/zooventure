@@ -1,28 +1,18 @@
 import React from "react";
-import AccordionHeader from "react-bootstrap/esm/AccordionHeader";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  Card,
-  Row,
-  Col,
-  Accordion,
-  Tab,
-  Tabs,
-  Button,
-  Alert,
-} from "react-bootstrap";
+import { Card, Col, Accordion, Button, Alert } from "react-bootstrap";
 import "./Accordion.css";
 
 import { ADD_PLAN, DELETE_ANIMAL } from "../utils/mutations";
-import { QUERY_USER, QUERY_USERS } from "../utils/queries";
+import { QUERY_USER } from "../utils/queries";
 import { useMutation, useQuery } from "@apollo/client";
 
 function AnimalItem(props) {
   //Define Variables
-  const { _id, description, name, funFact, img, animal } = props
+  const { _id, description, name, funFact, img, animal } = props;
 
   const { data, loading, e } = useQuery(QUERY_USER);
-  const [addPlan, { planData, error }] = useMutation(ADD_PLAN);
+  const [addPlan, { error }] = useMutation(ADD_PLAN);
   const [removeAnimal] = useMutation(DELETE_ANIMAL);
 
   console.log(error);
