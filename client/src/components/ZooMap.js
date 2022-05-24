@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
-import { Marker } from "@react-google-maps/api";
+// import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+// import { Marker } from "@react-google-maps/api";
 
 import AnimalWindow from "./AnimalWindow";
 
