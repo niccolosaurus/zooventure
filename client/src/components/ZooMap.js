@@ -83,7 +83,7 @@ function ZooMap() {
                     position={position}
                     onClick={(event) => {
                       console.log(event);
-                      event.preventDefault();
+                      // event.preventDefault();
                       getAnimalData(animal);
                     }}
                     icon={
