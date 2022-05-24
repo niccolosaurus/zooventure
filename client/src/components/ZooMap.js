@@ -25,6 +25,8 @@ function ZooMap() {
   //   googleMapsApiKey: "AIzaSyCuiil7MzZxeyMnEcO12VFm_VQdGaxYgDQ",
   // });
 
+  return <div> hello world </div>;
+
   const [map, setMap] = useState(null);
 
   const [showAnimalWindow, setShowAnimalWindow] = useState(false);
