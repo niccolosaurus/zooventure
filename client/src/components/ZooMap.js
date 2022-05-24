@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-// import { LoadScript, GoogleMap } from "@react-google-maps/api";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import { Marker } from "@react-google-maps/api";
-
 import AnimalWindow from "./AnimalWindow";
-
 import { useQuery } from "@apollo/client";
 import { QUERY_ANIMALS } from "../utils/queries";
 
@@ -12,7 +9,7 @@ const containerStyle = {
   width: "100%",
   height: "92.8vh",
 };
-//32.736025, -117.151387
+
 const center = {
   lat: 32.736025,
   lng: -117.151387,
@@ -58,7 +55,6 @@ function ZooMap() {
 
   if (data && isLoaded) {
     return (
-      // <LoadScript googleMapsApiKey="AIzaSyCuiil7MzZxeyMnEcO12VFm_VQdGaxYgDQ">
       <GoogleMap
         id="gmap-map"
         mapContainerStyle={containerStyle}
@@ -79,12 +75,10 @@ function ZooMap() {
               console.log({ animal });
               return (
                 <Marker
-                  // key={animal._id}
                   key={Math.random()}
                   position={position}
                   onClick={(event) => {
                     console.log(event);
-                    // event.preventDefault();
                     getAnimalData(animal);
                   }}
                   icon={process.env.PUBLIC_URL + "/assets/images/paw_icon.png"}
@@ -98,11 +92,8 @@ function ZooMap() {
                 </Marker>
               );
             })}
-
-          {/*  */}
         </>
       </GoogleMap>
-      // </LoadScript>
     );
   }
 }
