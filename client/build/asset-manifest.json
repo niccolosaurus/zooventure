@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/zooventure/static/css/main.8ec839a9.css",
+    "main.js": "/zooventure/static/js/main.219d3faf.js",
+    "static/js/787.4fe7684e.chunk.js": "/zooventure/static/js/787.4fe7684e.chunk.js",
+    "static/media/paws.jpeg": "/zooventure/static/media/paws.3bfb8c764dfc705ba029.jpeg",
+    "static/media/zoo-background.jpg": "/zooventure/static/media/zoo-background.dff878b37ed00405012c.jpg",
+    "index.html": "/zooventure/index.html",
+    "main.8ec839a9.css.map": "/zooventure/static/css/main.8ec839a9.css.map",
+    "main.219d3faf.js.map": "/zooventure/static/js/main.219d3faf.js.map",
+    "787.4fe7684e.chunk.js.map": "/zooventure/static/js/787.4fe7684e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8ec839a9.css",
+    "static/js/main.219d3faf.js"
+  ]
+}
