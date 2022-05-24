@@ -55,7 +55,7 @@ function ZooMap() {
   console.log(data);
   console.log({ showAnimalWindow });
 
-  if (data && isLoaded) {
+  if (data) {
     return (
       <GoogleMap
         id="gmap-map"
