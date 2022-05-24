@@ -50,4 +50,6 @@ db.once("open", async () => {
   ]);
 
   console.log("User collection seeded!");
+
+  return db.close();
 });
