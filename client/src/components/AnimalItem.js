@@ -45,7 +45,7 @@ function AnimalItem(props) {
     funFact: animal.funFact
   }
 
-  if(loading) return "Loading...";
+  if (loading) return "Loading...";
   if (error) return <pre>{error.message}</pre>;
 
   return (

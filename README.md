@@ -1,72 +1,55 @@
-# Getting Started with Create React App
+# Zooventure
 
-test 
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+![Zooventure-Main-Page](./client/build/assets/images/Zooventure.PNG)
 
-### `npm start`
+### Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+An interactive map for a visit to the zoo. It allows you to create a profile, log in, view a map with all the animal locations and add them to your visit. Once added to your day click on your profile and you can view what animals you want to see in your day. You can also remove/delete the animals from your day. Your profile also displays a map with markers of only the animals you want to see where as the main map shows all the animals. Lastly there is a Current Animals tab that will show all available animals in the zoo.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Table of Contents
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- [Deployment](#deployment)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contribution](#contribution)
+- [Test Instructions](#test-instructions)
+- [Questions](#questions)
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Our website has been succesfully deployed through Heroku, click the link to view:
+https://zooventure.herokuapp.com/
 
-### `npm run build` fails to minify
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Clone or download the repo. </br>
+
+### Usage
+
+Clone or download the repo.</br> Run npm install in node.</br> Run npm run seed.</br> You will also need your own Google Maps API key. Add that to your .env file.</br> Run npm run develop in your terminal to start the program.</br>
+
+### License
+
+MIT
+https://choosealicense.com/licenses/mit/
+
+### Contribution
+
+[niccolosaurus](https://github.com/niccolosaurus) (Niccolo Eck)</br> [CarlosCastillo123](https://github.com/CarlosCastillo123) (Carlos Castillo)</br> [Seyaryu](https://github.com/Seyaryu) (Daniel Holland)</br> [JayMoses01](https://github.com/JayMoses01) (Jay Moses)</br>
+
+### Test-Instructions
+
+n/a
+
+### Questions
+
+[Github Profie](https://github.com/niccolosaurus)</br>
+[Email](mailto:nicco.eck@gmail.com) </br>
+[LinkedIn](https://www.linkedin.com/in/niccolo-eck-195714223/)</br>

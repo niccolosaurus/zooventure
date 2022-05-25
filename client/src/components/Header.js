@@ -1,12 +1,14 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import Auth from "../utils/auth";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Container, Nav } from "react-bootstrap";
 const Header = () => {
+  const nav = useNavigate();
   const logout = (event) => {
     event.preventDefault();
+    nav("/");
     Auth.logout();
   };
 
@@ -36,7 +38,7 @@ const Header = () => {
                 <Nav.Link
                   style={{ color: "white" }}
                   className="nav-link"
-                  to="/"
+                  href="/"
                   onClick={logout}
                 >
                   Logout
@@ -73,6 +75,13 @@ const Header = () => {
               href="/map"
             >
               Map
+            </Nav.Link>
+            <Nav.Link
+              style={{ color: "white" }}
+              className="nav-link active"
+              href="/animals"
+            >
+              Current Animals
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

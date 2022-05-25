@@ -1,14 +1,11 @@
-const db = require('../config/connection');
-const { Animal, User, Product } = require('../models')
+const db = require("../config/connection");
+const { Animal, User, Product } = require("../models");
 
 const animalData = require('./animalCoord.json');
 
-db.once('open', async () => {
-  
+db.once("open", async () => {
   await Animal.deleteMany({});
   const animals = await Animal.insertMany(animalData);
-  
-  console.log('Animal collection seeded!');
 
   await User.deleteMany({});
 
