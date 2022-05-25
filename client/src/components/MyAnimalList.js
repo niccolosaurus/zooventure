@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Card, Row, Col, Accordion, Tab, Tabs, Button } from 'react-bootstrap';
+import { Card, Col, Accordion, Button } from 'react-bootstrap';
 import { REMOVE_PLAN } from '../utils/mutations';
-import {useMutation, useQuery} from '@apollo/client'
-
+import {useMutation} from '@apollo/client'
 
 
 const MyAnimalList = (props) => {
@@ -24,17 +23,12 @@ const MyAnimalList = (props) => {
     _id: animal._id,
     name: animal.name,
     coord: animal.coord,
-    // Lat: parseFloat(animal.Lat),
-    // Lon: parseFloat(animal.Lon),
     Lat: animal.Lat,
     Lon: animal.Lon,
     description: animal.description,
     img: animal.img,
     funFact: animal.funFact
   }
-
-  console.log({data})
-  console.log(_id)
 
   return (
     

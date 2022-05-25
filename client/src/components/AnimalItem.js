@@ -1,32 +1,38 @@
-import React from "react";
-import AccordionHeader from "react-bootstrap/esm/AccordionHeader";
+import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   Card,
-  Row,
   Col,
   Accordion,
-  Tab,
-  Tabs,
   Button,
   Alert,
 } from "react-bootstrap";
 import "./Accordion.css";
 
 import { ADD_PLAN, DELETE_ANIMAL } from "../utils/mutations"
-import { QUERY_USER, QUERY_USERS } from "../utils/queries";
+import { QUERY_USER, QUERY_USERS, QUERY_ANIMALS } from "../utils/queries";
 import {useMutation, useQuery} from '@apollo/client'
 
 function AnimalItem(props) {
-  //Define Variables
-  const { _id, description, name, funFact, img, animal } = props;
+  // Define Variables
+  const {
+    _id,
+    description,
+    name,
+    funFact,
+    img,
+    animal,
+
+  } = props
 
   const { data, loading, e } = useQuery(QUERY_USER);
-  const [addPlan, {planData, error}] = useMutation(ADD_PLAN);
-  const [removeAnimal] = useMutation(DELETE_ANIMAL);
-
-
-  console.log(error);
+  const [addPlan, {data: addPlanData, error}] = useMutation(ADD_PLAN);
+  const [deleteAnimal, {deletedata, err}] = useMutation(DELETE_ANIMAL, {
+    refetchQueries: [
+      QUERY_ANIMALS,
+      'getAnimals'
+    ]
+  });
 
   const revisedAnimal = {
     _id: animal._id,
@@ -36,12 +42,12 @@ function AnimalItem(props) {
     Lon: animal.Lon,
     description: animal.description,
     img: animal.img,
-
-    funFact: animal.funFact,
-  };
+    funFact: animal.funFact
+  }
 
   if(loading) return "Loading...";
   if (error) return <pre>{error.message}</pre>;
+
   return (
     <Card
       key={_id}
@@ -114,16 +120,28 @@ function AnimalItem(props) {
           Add Animal to Plan
         </Button>
         {data.user.admin ? (
-          <Button size="lg" style={{backgroundColor: "red", marginTop: "10px"}} variant="warning" id="add-plan" onClick={() => removeAnimal({ variables: { animals: revisedAnimal._id } })}>Remove Animal</Button>
-         ):(
+          <Button
+            size="lg"
+            style={{ backgroundColor: "red", marginTop: "10px" }}
+            variant="warning"
+            id="add-plan"
+            onClick={() =>
+              deleteAnimal({ variables: { animals: revisedAnimal._id } })
+            }
+          >
+            Delete Animal
+          </Button>
+        ) : (
           <></>
-        )} 
+        )}
         {error && (
           <Alert variant="danger"> 'Animal already added to plan' </Alert>
         )}
+      
       </Card.Footer>
     </Card>
+
   );
-}
+};
 
 export default AnimalItem;
