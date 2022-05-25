@@ -4,7 +4,7 @@ import { Card, Col, Accordion, Button, Alert } from "react-bootstrap";
 import "./Accordion.css";
 
 import { ADD_PLAN, DELETE_ANIMAL } from "../utils/mutations";
-import { QUERY_USER } from "../utils/queries";
+import { QUERY_USER, QUERY_ANIMALS } from "../utils/queries";
 import { useMutation, useQuery } from "@apollo/client";
 
 function AnimalItem(props) {
@@ -13,7 +13,12 @@ function AnimalItem(props) {
 
   const { data, loading, e } = useQuery(QUERY_USER);
   const [addPlan, { error }] = useMutation(ADD_PLAN);
-  const [removeAnimal] = useMutation(DELETE_ANIMAL);
+  const [deleteAnimal, {deletedata, err}] = useMutation(DELETE_ANIMAL, {
+    refetchQueries: [
+      QUERY_ANIMALS,
+      'getAnimals'
+    ]
+  });
 
   console.log(error);
 
@@ -109,10 +114,10 @@ function AnimalItem(props) {
             variant="warning"
             id="add-plan"
             onClick={() =>
-              removeAnimal({ variables: { animals: revisedAnimal._id } })
+              deleteAnimal({ variables: { animals: revisedAnimal._id } })
             }
           >
-            Remove Animal
+            Delete Animal
           </Button>
         ) : (
           <></>
