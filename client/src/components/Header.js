@@ -43,6 +43,30 @@ const Header = () => {
                 >
                   Logout
                 </Nav.Link>
+
+                <Nav.Link
+                  style={{ color: "white" }}
+                  className="nav-link active"
+                  href="/"
+                >
+                  Home
+                </Nav.Link>
+
+                <Nav.Link
+                  style={{ color: "white" }}
+                  className="nav-link active"
+                  href="/map"
+                >
+                  Map
+                </Nav.Link>
+
+                <Nav.Link
+                  style={{ color: "white" }}
+                  className="nav-link active"
+                  href="/animals"
+                >
+                  Current Animals
+                </Nav.Link>
               </>
             ) : (
               <>
@@ -62,27 +86,6 @@ const Header = () => {
                 </Nav.Link>
               </>
             )}
-            <Nav.Link
-              style={{ color: "white" }}
-              className="nav-link active"
-              href="/"
-            >
-              Home
-            </Nav.Link>
-            <Nav.Link
-              style={{ color: "white" }}
-              className="nav-link active"
-              href="/map"
-            >
-              Map
-            </Nav.Link>
-            <Nav.Link
-              style={{ color: "white" }}
-              className="nav-link active"
-              href="/animals"
-            >
-              Current Animals
-            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
